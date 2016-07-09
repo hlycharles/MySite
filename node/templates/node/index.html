@@ -1,0 +1,46 @@
+{% load staticfiles %}
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Luyao Hou</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link type="text/css" rel="stylesheet" 
+		      href="{% static 'node/index_style.css' %}" />
+		<link type="text/css" rel="stylesheet" 
+			  href="{% static 'node/bootstrap_3.3.6/css/bootstrap.min.css' %}" />
+		<!-- include jQuery library -->
+		<script src="{% static 'node/jquery_2.2.4.js' %}"></script>
+		<script src="{% static 'node/bootstrap_3.3.6/js/bootstrap.min.js' %}">
+		</script>
+		<script src="{% static 'node/index_js.js' %}"></script>
+		<script type="text/javascript">
+			var data = {{vals|safe}};
+		</script>
+	</head>
+
+	<body>
+		<div class="titleBar">
+			<ul class="navList">
+				<li><a href="{% url 'index' %}">Main</a></li>
+				<li><a href="http://google.com">About</a></li>
+				<li><a href="{% url 'work' %}">Work</a></li>
+				<li><a href="http://google.com">Memos</a></li>
+				<li><a href="http://google.com">Contact</a></li>
+			</ul>
+		</div>
+		<div class="main">
+			<canvas class="bgCanvas"></canvas>
+			<div id="mainImg">
+				<img id="profile" src="{% static 'node/img/profile_pic.jpg' %} " />
+			</div>
+			<div id="mainIntro">
+				<h2>About</h2>
+				<ul id="mainInfo">
+					<li>First</li>
+					<li>Second</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+{% load staticfiles %}
+{% load node_extras %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Luyao Hou-Work</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link type="text/css" rel="stylesheet" 
+		      href="{% static 'node/work_style.css' %}" />
+		<link type="text/css" rel="stylesheet" 
+			  href="{% static 'node/bootstrap_3.3.6/css/bootstrap.min.css' %}" />
+		<!-- include jQuery library -->
+		<script src="{% static 'node/jquery_2.2.4.js' %}"></script>
+		<script src="{% static 'node/bootstrap_3.3.6/js/bootstrap.min.js' %}">
+		</script>
+		<script src="{% static 'node/work_js.js' %}"></script>
+		<script type="text/javascript">
+			var imgs = {{imgs|safe}};
+		</script>
+	</head>
+	<body>
+		<div class="titleBar">
+			<ul class="navList">
+				<li><a href="{% url 'index' %}">Main</a></li>
+				<li><a href="http://google.com">About</a></li>
+				<li id="work"><a href="{% url 'work' %}">Work</a></li>
+				<li><a href="http://google.com">Memos</a></li>
+				<li><a href="http://google.com">Contact</a></li>
+			</ul>
+		</div>
+		<div class="workMain">
+			<div class="navCol">
+				<ul>
+					<li>All</li>
+					<li>Python</li>
+					<li>Web</li>
+					<li>iOS</li>
+					<li>Others</li>
+				</ul>
+			</div>
+			<div class="workContent">
+				{% if allProjects %}
+					{% for project in allProjects %}
+						<div class="project">
+							
+						</div>
+					{% endfor %}
+				{% else %}
+					<p>No projects</p>
+				{% endif %}
+			</div>
+		</div>
+	<body>
+</html>
