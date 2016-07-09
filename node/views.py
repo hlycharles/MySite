@@ -21,9 +21,10 @@ def work(request):
             relativePath = currImages[0].image.url
             #take out the media url
             relativePath = relativePath[1:]
-            slash = relativePath.find("/")
-            relativePath = relativePath[slash:]
-            relativePath = "img" + relativePath
+            mediaUrlLen = len(settings.MEDIA_URL)
+            if (mediaUrlLen > 0):
+                relativePath = relativePath[mediaUrlLen - 1:]
+            relativePath = "img/" + relativePath
             imgs.append(relativePath)
         else:
             imgTitles.append(False)

@@ -1,0 +1,88 @@
+div.titleBar {
+	position: fixed;
+	width: 100%;
+	height: 60px;
+	background-color: black;
+	margin-top: 0px;
+	margin-left: 0px;
+	padding: 0px;
+	z-index: 10;
+}
+
+.navList {
+	position: relative;
+	list-style: none;
+	text-align: center;
+	line-height: 60px;
+}
+
+.navList > li {
+	display:inline-block;
+}
+
+li#work a {
+	color: #6c6c6c;
+}
+
+.navList > li > a {
+	display: inline-block;
+	text-decoration:none; 
+	padding:0 30px;
+	color: white;
+	font-size: 15px;
+}
+
+.navList > li > a:hover {
+	color: gray;
+}
+
+.workMain {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.navCol {
+	position: fixed;
+	float: left;
+	width: 20%;
+	height: 60%;
+}
+
+.navCol > ul {
+	position: absolute;
+	margin-top: 100px;
+	list-style-type: none;
+}
+
+.navCol > ul > li {
+	font-size: 18px;
+	color: black;
+	padding: 10px;
+	padding-bottom: 20px;
+}
+
+.workContent {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+.workContent > div {
+	margin-top: 50px;
+	margin-left: 25%;
+	width: 50%;
+	height: 200px;
+	display: block;
+}
+
+.workContent > div:first-child {
+	margin-top: 100px;
+}
+
+.workContent > p {
+	position: relative;
+	top: 100px;
+	color: black;
+	font-size: 20px;
+}
