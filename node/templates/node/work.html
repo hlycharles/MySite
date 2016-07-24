@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Luyao Hou-Work</title>
+		<title>Luyao Hou - Work</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link type="text/css" rel="stylesheet" 
 		      href="{% static 'node/work_style.css' %}" />
@@ -17,6 +17,7 @@
 		<script src="{% static 'node/work_js.js' %}"></script>
 		<script type="text/javascript">
 			var imgs = {{imgs|safe}};
+			var imgTitles = JSON.parse("{{imgTitles|escapejs}}");
 		</script>
 	</head>
 	<body>
@@ -43,7 +44,12 @@
 				{% if allProjects %}
 					{% for project in allProjects %}
 						<div class="project">
-							
+							<img class="projectBg" />
+							<div class="projectContent">
+								<p></p>
+							</div>
+							<div class="projectOverlay">
+							</div>
 						</div>
 					{% endfor %}
 				{% else %}

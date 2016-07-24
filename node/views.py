@@ -17,7 +17,7 @@ def work(request):
     for project in allProjects:
         currImages = project.projectimage_set.all()
         if (len(currImages) > 0):
-            imgTitles.append(currImages[0].title)
+            imgTitles.append(project.title)
             relativePath = currImages[0].image.url
             #take out the media url
             relativePath = relativePath[1:]
@@ -27,11 +27,11 @@ def work(request):
             relativePath = "img/" + relativePath
             imgs.append(relativePath)
         else:
-            imgTitles.append(False)
+            imgTitles.append("")
             imgs.append("")
     context = {
         "allProjects": allProjects,
-        "imgTitles": imgTitles,
+        "imgTitles": json.dumps(imgTitles),
         "imgs": imgs,
     }
     return render(request, "node/work.html", context)

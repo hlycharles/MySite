@@ -6,7 +6,7 @@ div.titleBar {
 	margin-top: 0px;
 	margin-left: 0px;
 	padding: 0px;
-	z-index: 10;
+	z-index: 100;
 }
 
 .navList {
@@ -51,7 +51,7 @@ li#work a {
 
 .navCol > ul {
 	position: absolute;
-	margin-top: 100px;
+	margin-top: 150px;
 	list-style-type: none;
 }
 
@@ -69,11 +69,15 @@ li#work a {
 }
 
 .workContent > div {
+	position: relative;
 	margin-top: 50px;
 	margin-left: 25%;
 	width: 50%;
-	height: 200px;
+	height: 280px;
 	display: block;
+	overflow: hidden;
+	box-shadow: 0px 3px 2px 1px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
 }
 
 .workContent > div:first-child {
@@ -85,4 +89,52 @@ li#work a {
 	top: 100px;
 	color: black;
 	font-size: 20px;
+}
+
+.projectBg {
+	position: absolute;
+	width: 70%;
+	height: auto;
+	background-repeat: no-repeat;
+	z-index: 0;
+	top: 20px;
+	left: 30%;
+	padding: 5px;
+
+	-webkit-filter: blur(3px);
+	-moz-filter: blur(3px);
+	-o-filter: blur(3px);
+	-ms-filter: blur(3px);
+	filter: blur(3px);
+
+}
+
+.projectContent {
+	position: absolute;
+	width: 80%;
+	height: 100%;
+	background: rgba(245, 245, 245, 0.2);
+	z-index: 10;
+	top: 0;
+	left: 0;
+}
+
+.projectOverlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 20;
+	background-color: black;
+	top: 0;
+	left: 0;
+}
+
+.projectContent > p {
+	position: relative;
+	width: 80%;
+	height: 60%;
+	left: 5px;
+	top: 40%;
+	text-align: left;
+	padding-left: 10px;
 }
