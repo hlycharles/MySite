@@ -60,6 +60,12 @@ li#work a {
 	color: black;
 	padding: 10px;
 	padding-bottom: 20px;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.navColList > li:hover {
+	color: rgb(110, 110, 110);
 }
 
 .workContent {

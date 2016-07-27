@@ -31,7 +31,7 @@ $(document).ready(function() {
 		if (imgs[i].length > 0) {
 			var url = imgs[i][0] == '/' ? imgs[i] : "/" + imgs[i];
 			projects[i].setAttribute("src", url);
-			//TODO: improve reliability when getting image size
+			//TODO: improve reliability when getting image sizes
 			var newImg = new Image();
 			newImg.onload = loadFullContainerHeight;
 			newImg.src = url;
@@ -70,5 +70,50 @@ $(document).ready(function() {
 			});
 		}
 		overlayClickHandler(i);
+	}
+	//first show all projects
+	var categoryList = document.getElementsByClassName("navColList")[0];
+	var allCategories = categoryList.children;
+	var categoryAll = allCategories[0];
+	categoryAll.style.fontWeight = "bold";
+	$(".workContent > p").hide();
+	for (var i = 0; i < allCategories.length; i++) {
+		var currItem = allCategories[i];
+		if (i > 0) {
+			$(currItem).css("color", categoryColors[i - 1]);
+		}
+		function categoryItemClickHandler(currIndex) {
+			$(allCategories[currIndex]).click(function() {
+				//first turn all categories into normal font
+				for (var c = 0; c < allCategories.length; c++) {
+					allCategories[c].style.fontWeight = "normal";
+				}
+				allCategories[currIndex].style.fontWeight = "bold";
+				//filter the projects according to categories
+				var hasProject = false;
+				for (var p = 0; p < containers.length; p++) {
+					//show all projects
+					if (currIndex == 0 || 
+						projectCategories[p] == (currIndex - 1)) {
+						$(containers[p]).show();
+						if (!hasProject) {
+							$(containers[p]).css("margin-top", "100px");
+						}else {
+							$(containers[p]).css("margin-top", "50px");
+						}
+						hasProject = true;
+					}else {
+						$(containers[p]).hide();
+					}
+				}
+				//there is no project that matches the criteria
+				if (!hasProject) {
+					$(".workContent > p").show();
+				}else {
+					$(".workContent > p").hide();
+				}
+			});
+		}
+		categoryItemClickHandler(i);
 	}
 });
