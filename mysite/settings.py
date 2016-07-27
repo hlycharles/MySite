@@ -30,8 +30,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-MEDIA_ROOT = '/Users/Mac/Documents/Panorama/Creation/Projects/MySite/node/static/node/img'
-MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+MEDIA_URL = "media/"
 
 INSTALLED_APPS = [
     'node.apps.NodeConfig',

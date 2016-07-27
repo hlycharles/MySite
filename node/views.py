@@ -12,26 +12,24 @@ def index(request):
 
 def work(request):
     allProjects = Project.objects.all()
-    imgTitles = [];
-    imgs = [];
+    projectTitles = []
+    projectContents = []
+    imgs = []
     for project in allProjects:
         currImages = project.projectimage_set.all()
         if (len(currImages) > 0):
-            imgTitles.append(project.title)
+            projectTitles.append(project.title)
+            projectContents.append(project.content)
             relativePath = currImages[0].image.url
-            #take out the media url
-            relativePath = relativePath[1:]
-            mediaUrlLen = len(settings.MEDIA_URL)
-            if (mediaUrlLen > 0):
-                relativePath = relativePath[mediaUrlLen - 1:]
-            relativePath = "img/" + relativePath
             imgs.append(relativePath)
         else:
-            imgTitles.append("")
+            projectTitles.append("")
+            projectContents.append("")
             imgs.append("")
     context = {
         "allProjects": allProjects,
-        "imgTitles": json.dumps(imgTitles),
+        "projectTitles": json.dumps(projectTitles),
+        "projectContents": json.dumps(projectContents),
         "imgs": imgs,
     }
     return render(request, "node/work.html", context)

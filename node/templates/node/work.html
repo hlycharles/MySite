@@ -17,7 +17,8 @@
 		<script src="{% static 'node/work_js.js' %}"></script>
 		<script type="text/javascript">
 			var imgs = {{imgs|safe}};
-			var imgTitles = JSON.parse("{{imgTitles|escapejs}}");
+			var projectTitles = JSON.parse("{{projectTitles|escapejs}}");
+			var projectContents = JSON.parse("{{projectContents|escapejs}}");
 		</script>
 	</head>
 	<body>
@@ -45,7 +46,9 @@
 					{% for project in allProjects %}
 						<div class="project">
 							<img class="projectBg" />
+							<div class="projectMask"></div>
 							<div class="projectContent">
+								<h3></h3>
 								<p></p>
 							</div>
 							<div class="projectOverlay">

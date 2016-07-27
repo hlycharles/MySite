@@ -99,21 +99,29 @@ li#work a {
 	z-index: 0;
 	top: 20px;
 	left: 30%;
-	padding: 5px;
 
-	-webkit-filter: blur(3px);
+	/*-webkit-filter: blur(3px);
 	-moz-filter: blur(3px);
 	-o-filter: blur(3px);
 	-ms-filter: blur(3px);
-	filter: blur(3px);
+	filter: blur(3px);*/
 
 }
+
+.projectMask {
+	position: absolute;
+	z-index: 5;
+	width: 100%;
+	height: 100%;
+	background: rgba(245, 245, 245, 0.5);
+}
+
 
 .projectContent {
 	position: absolute;
 	width: 80%;
 	height: 100%;
-	background: rgba(245, 245, 245, 0.2);
+	background: rgba(255, 255, 255, 0);
 	z-index: 10;
 	top: 0;
 	left: 0;
@@ -129,8 +137,18 @@ li#work a {
 	left: 0;
 }
 
+.projectContent > h3 {
+	position: absolute;
+	height: 30%;
+	width: 80%;
+	left: 5px;
+	top: 10px;
+	text-align: left;
+	padding-left: 10px;
+}
+
 .projectContent > p {
-	position: relative;
+	position: absolute;
 	width: 80%;
 	height: 60%;
 	left: 5px;
