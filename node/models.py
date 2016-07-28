@@ -9,6 +9,9 @@ class Visit(models.Model):
 class BasicInfo(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
+    
+    def __str__(self):
+        return self.title
 
 class Project(models.Model):
     title = models.CharField(max_length=100)
@@ -25,7 +28,13 @@ class Project(models.Model):
     CATEGORY_COLORS = ["black", "black", "black", "black", "black"]
     category = models.SmallIntegerField(default=0, choices=CATEGORY_CHOICES)
 
+    def __str__(self):
+        return self.title
+
 class ProjectImage(models.Model):
     project = models.ForeignKey(Project)
     title = models.CharField(max_length=100)
     image = models.ImageField(upload_to='project_img')
+
+    def __str__(self):
+        return self.title
