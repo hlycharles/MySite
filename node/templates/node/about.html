@@ -16,6 +16,7 @@
 		</script>
 		<script src="{% static 'node/about_js.js' %}"></script>
 		<script type="text/javascript">
+
 		</script>
 	</head>
 	<body>
@@ -27,6 +28,18 @@
 				<li><a href="http://google.com">Memos</a></li>
 				<li><a href="http://google.com">Contact</a></li>
 			</ul>
+		</div>
+		<div id="aboutContent">
+			{% if allInfo %}
+				{% for info in allInfo %}
+					<div class="infoEntry">
+						<img class="showAllButton" />
+						<h3>{{info.title}}</h3>
+						<hr>
+						<p>{{info.content|safe}}</p>
+					</div>
+				{% endfor %}
+		{% endif %}
 		</div>
 	<body>
 </html>

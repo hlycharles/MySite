@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Project
+from .models import Project, BasicInfo
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 from django.conf import settings
@@ -11,7 +11,13 @@ def index(request):
     return render(request, "node/index.html", context)
 
 def about(request):
-    context = {}
+    allInfoEntries = BasicInfo.objects.all()
+    infoContents = []
+    for info in allInfoEntries:
+        infoContents.append(info.content)
+    context = {
+        "allInfo": allInfoEntries,
+    }
     return render(request, "node/about.html", context)
 
 def work(request):

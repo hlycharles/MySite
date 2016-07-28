@@ -6,6 +6,10 @@ from django.db import models
 class Visit(models.Model):
     count = models.IntegerField(default=0)
 
+class BasicInfo(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+
 class Project(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
