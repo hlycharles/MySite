@@ -29,17 +29,30 @@
 				<li><a href="http://google.com">Contact</a></li>
 			</ul>
 		</div>
-		<div id="aboutContent">
-			{% if allInfo %}
-				{% for info in allInfo %}
-					<div class="infoEntry">
-						<img class="showAllButton" />
-						<h3>{{info.title}}</h3>
-						<hr>
-						<p>{{info.content|safe}}</p>
+		<div id="aboutMain">
+			<div id="navCol">
+				<ul id="navColList">
+					{% if allInfo %}
+						{% for info in allInfo %}
+							<li>{{info.title}}</li>
+						{% endfor %}
+					{% endif %}
+				</ul>
+			</div>
+			<div id="aboutContent">
+				{% if allInfo %}
+					{% for info in allInfo %}
+						<div class="infoEntry">
+							<img class="showAllButton" />
+							<h3>{{info.title}}</h3>
+							<hr>
+							<p>{{info.content|safe}}</p>
+						</div>
+					{% endfor %}
+					<div id="placeholder">
 					</div>
-				{% endfor %}
-		{% endif %}
+				{% endif %}
+			</div>
 		</div>
 	<body>
 </html>

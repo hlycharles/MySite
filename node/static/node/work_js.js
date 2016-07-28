@@ -78,10 +78,6 @@ $(document).ready(function() {
 	categoryAll.style.fontWeight = "bold";
 	$(".workContent > p").hide();
 	for (var i = 0; i < allCategories.length; i++) {
-		var currItem = allCategories[i];
-		if (i > 0) {
-			$(currItem).css("color", categoryColors[i - 1]);
-		}
 		function categoryItemClickHandler(currIndex) {
 			$(allCategories[currIndex]).click(function() {
 				//first turn all categories into normal font

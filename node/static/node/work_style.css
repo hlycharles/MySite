@@ -45,8 +45,8 @@ li#work a {
 .navCol {
 	position: fixed;
 	float: left;
-	width: 20%;
-	height: 60%;
+	width: 15%;
+	height: 100%;
 }
 
 .navCol > ul {
@@ -56,7 +56,7 @@ li#work a {
 }
 
 .navCol > ul > li {
-	font-size: 18px;
+	font-size: 15px;
 	color: black;
 	padding: 10px;
 	padding-bottom: 20px;
