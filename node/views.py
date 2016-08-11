@@ -50,3 +50,7 @@ def work(request):
     }
     return render(request, "node/work.html", context)
 
+def contact(request):
+    context = {}
+    return render(request, "node/contact.html", context)
+
