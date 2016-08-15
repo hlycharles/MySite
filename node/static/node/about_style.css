@@ -1,39 +1,5 @@
-div.titleBar {
-	position: fixed;
-	width: 100%;
-	height: 60px;
-	background-color: black;
-	margin-top: 0px;
-	margin-left: 0px;
-	padding: 0px;
-	z-index: 100;
-}
-
-.navList {
-	position: relative;
-	list-style: none;
-	text-align: center;
-	line-height: 60px;
-}
-
-.navList > li {
-	display:inline-block;
-}
-
 li#about a {
 	color: #6c6c6c;
-}
-
-.navList > li > a {
-	display: inline-block;
-	text-decoration:none; 
-	padding:0 30px;
-	color: white;
-	font-size: 15px;
-}
-
-.navList > li > a:hover {
-	color: gray;
 }
 
 div#aboutMain {

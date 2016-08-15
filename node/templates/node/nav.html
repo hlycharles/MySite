@@ -1,9 +1,51 @@
-<div class="titleBar">
-	<ul class="navList">
-		<li><a href="{% url 'index' %}">Main</a></li>
-			<li id="about"><a href="{% url 'about' %}">About</a></li>
-			<li id="work"><a href="{% url 'work' %}">Work</a></li>
-			<!-- <li><a href="http://google.com">Memos</a></li> -->
-			<li id="contact"><a href="{% url 'contact' %}">Contact</a></li>
-	</ul>
-</div>
+<html>
+	<head>
+		<style>
+			div.titleBar {
+				position: fixed;
+				width: 100%;
+				height: 60px;
+				background-color: black;
+				margin-top: 0px;
+				margin-left: 0px;
+				padding: 0px;
+				z-index: 100;
+			}
+
+			.navList {
+				position: relative;
+				list-style: none;
+				text-align: center;
+				line-height: 60px;
+			}
+
+			.navList > li {
+				display:inline-block;
+			}
+
+			.navList > li > a {
+				display: inline-block;
+				text-decoration:none; 
+				padding:0 30px;
+				color: white;
+				font-size: 15px;
+			}
+
+			.navList > li > a:hover {
+				color: gray;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="titleBar">
+			<ul class="navList">
+				<li><a href="{% url 'index' %}">Main</a></li>
+					<li id="about"><a href="{% url 'about' %}">About</a></li>
+					<li id="work"><a href="{% url 'work' %}">Work</a></li>
+					<!-- <li><a href="http://google.com">Memos</a></li> -->
+					<li id="contact">
+						<a href="{% url 'contact' %}">Contact</a></li>
+			</ul>
+		</div>
+	</body>
+</html>
