@@ -36,3 +36,78 @@ li#contact a {
 	color: gray;
 }
 
+/* main content */
+
+/*
+div.contentDiv {
+	position: absolute;
+	left: 20%;
+	width: 60%;
+	height: auto;
+	background-color: white;
+	padding-left: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-radius: 10px;
+} */
+
+div#contactMain {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #b2d3d3;
+}
+
+div.contentDiv > p, a#emailLink, 
+div.basicInfo > p {
+	font-size: 18px;
+	font-family: Helvetica, sans-serif;
+	color: black;
+}
+
+div.basicInfo {
+	position: absolute;
+	top: 100px;
+	width: 42.5%;
+	display: inline-block;
+	text-align: center;
+}
+
+div#phoneDiv {
+	left: 5%;
+	background-color: white;
+}
+
+div#emailDiv {
+	right: 5%;
+	background-color: white;
+}
+
+div#socialDiv {
+	position: absolute;
+	left: 5%;
+	width: 90%;
+	background-color: white;
+	text-align: center;
+}
+
+div.accountDiv {
+	width: 150px;
+	height: 50px;
+	border: 1px black solid;
+	display: inline-block;
+	margin-right: 50px;
+	text-align: left;
+	padding: 10px;
+}
+
+img.socialLogo {
+	width: auto;
+	height: 100%;
+	display: inline-block;
+}
+
+div.accountDiv > p {
+	display: inline-block;
+	text-align: center;
+}

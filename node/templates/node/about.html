@@ -20,15 +20,7 @@
 		</script>
 	</head>
 	<body>
-		<div class="titleBar">
-			<ul class="navList">
-				<li><a href="{% url 'index' %}">Main</a></li>
-				<li id="about"><a href="{% url 'about' %}">About</a></li>
-				<li id="work"><a href="{% url 'work' %}">Work</a></li>
-				<li><a href="http://google.com">Memos</a></li>
-				<li id="contact"><a href="{% url 'contact' %}">Contact</a></li>
-			</ul>
-		</div>
+		{% include "node/nav.html" %}
 		<div id="aboutMain">
 			<div id="navCol">
 				<ul id="navColList">

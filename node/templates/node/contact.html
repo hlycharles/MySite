@@ -20,16 +20,34 @@
 		</script>
 	</head>
 	<body>
-		<div class="titleBar">
-			<ul class="navList">
-				<li><a href="{% url 'index' %}">Main</a></li>
-				<li id="about"><a href="{% url 'about' %}">About</a></li>
-				<li id="work"><a href="{% url 'work' %}">Work</a></li>
-				<li><a href="http://google.com">Memos</a></li>
-				<li id="contact"><a href="{% url 'contact' %}">Contact</a></li>
-			</ul>
-		</div>
+		{% include "node/nav.html" %}
 		<div id="contactMain">
+			<div id="phoneDiv" class="basicInfo">
+				<h1>Phone</h1>
+				<p>412-961-4655</p>
+			</div>
+			<div id="emailDiv" class="basicInfo">
+				<h1>Email</h1>
+				<a href="mailto:hly.charles@gmail.com?Subject=Hi" 
+				   id="emailLink">hly.charles@gmail.com</a>
+			</div>
+			<div id="socialDiv">
+				<h1>Social</h1>
+				<a href="http://www.baidu.com">
+					<div id="githubLink" class="accountDiv">
+						<img id="githubLogo" class="socialLogo" 
+						     src="{% static 'node/img/profile_pic.jpg' %} " />
+						<p>GitHub</p>
+					</div>
+				</a>
+				<a href="http://www.baidu.com">
+					<div id="linkedInLink" class="accountDiv">
+						<img id="linkedInLogo" class="socialLogo" 
+						     src="{% static 'node/img/profile_pic.jpg' %} " />
+						<p>GitHub</p>
+					</div>
+				</a>
+			</div>
 		</div>
 	<body>
 </html>
