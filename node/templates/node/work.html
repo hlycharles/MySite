@@ -12,6 +12,7 @@
 			  href="{% static 'node/bootstrap_3.3.6/css/bootstrap.min.css' %}" />
 		<!-- include jQuery library -->
 		<script src="{% static 'node/jquery_2.2.4.js' %}"></script>
+		<script src="{% static 'node/jQueryRotate.js' %}"></script>
 		<script src="{% static 'node/bootstrap_3.3.6/js/bootstrap.min.js' %}">
 		</script>
 		<script src="{% static 'node/work_js.js' %}"></script>
@@ -27,6 +28,7 @@
 		{% include "node/nav.html" %}
 		<div class="workMain">
 			<div class="navCol">
+				<h5>Categories:</h5>
 				<ul class="navColList">
 					<li>All</li>
 					{% if categories %}
@@ -47,10 +49,15 @@
 								<p></p>
 							</div>
 							<div class="projectOverlay">
+								<img class="showMoreButton" 
+								  src="{% static 'node/img/up_arrow.png' %}" />
+								<img class="linkButton" 
+								  src="{% static 'node/img/link.png' %}" />
 							</div>
 						</div>
 					{% endfor %}
 					<p>No Related Project</p>
+					<div id="placeholder"></div>
 				{% endif %}
 			</div>
 		</div>

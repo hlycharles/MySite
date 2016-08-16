@@ -1,31 +1,44 @@
 li#work a {
-	color: #6c6c6c;
+	box-shadow: inset 0px -2px #3293bc;
+	-webkit-box-shadow: inset 0px -2px #3293bc;
+	-moz-box-shadow: inset 0px -2px #3293bc;
 }
 
 .workMain {
 	position: absolute;
+	top: 0px;
 	width: 100%;
-	height: 100%;
+	height: auto;
+	min-height: 100%;
+	background-color: rgb(252, 252, 252);
 }
 
 .navCol {
 	position: fixed;
 	float: left;
 	width: 15%;
-	height: 100%;
+	margin-top: 100px;
+	height: auto;
+	background-color: rgb(240, 240, 240);
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.navCol > h5 {
+	position: relative;
+	left: 10%;
+	font-weight: bold;
 }
 
 .navCol > ul {
-	position: absolute;
-	margin-top: 150px;
 	list-style-type: none;
 }
 
 .navCol > ul > li {
 	font-size: 15px;
 	color: black;
-	padding: 10px;
-	padding-bottom: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	cursor: pointer;
 	cursor: hand;
 }
@@ -42,14 +55,14 @@ li#work a {
 
 .workContent > div {
 	position: relative;
-	margin-top: 50px;
+	margin-top: 40px;
 	margin-left: 25%;
 	width: 50%;
 	height: 280px;
 	display: block;
 	overflow: hidden;
-	box-shadow: 0px 3px 2px 1px rgba(0, 0, 0, 0.3);
-	border-radius: 10px;
+	/* box-shadow: 0px 3px 2px 1px rgba(0, 0, 0, 0.3);
+	border-radius: 10px; */
 }
 
 .workContent > div:first-child {
@@ -104,9 +117,29 @@ li#work a {
 	width: 100%;
 	height: 100%;
 	z-index: 20;
-	background-color: black;
 	top: 0;
 	left: 0;
+}
+
+img.showMoreButton {
+	position: absolute;
+	right: 15%;
+	top: 1px;
+	width: 5%;
+	height: 5%;
+}
+
+img.linkButton {
+	position: absolute;
+	right: 5%;
+	top: 1px;
+	width: 5%;
+	height: 5%;
+}
+
+img.showMoreButton:hover, img.linkButton:hover {
+	cursor: pointer;
+	cursor: hand;
 }
 
 .projectContent > h3 {
@@ -127,4 +160,10 @@ li#work a {
 	top: 40%;
 	text-align: left;
 	padding-left: 10px;
+}
+
+div#placeholder {
+	position: relative;
+	margin-top: 80px;
+	height: 1px;
 }

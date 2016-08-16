@@ -1,6 +1,44 @@
 $(document).ready(function() {
 	var containers = document.getElementsByClassName("infoEntry");
 	var showAllButtons = document.getElementsByClassName("showAllButton");
+	var overlays = document.getElementsByClassName("overlay");
+	var titles = document.getElementsByClassName("infoTitle");
+	var contents = document.getElementsByClassName("infoContent");
+	//adjust background height
+	var placeholder = $("#placeholder");
+	$("#aboutMain").height(placeholder.offset().top + placeholder.height());
+	//first hide all buttons and adjust button positions
+	for (var i = 0; i < showAllButtons.length; i++) {
+		$(showAllButtons[i]).fadeTo(0, 0);
+		var newTop = $(titles[i]).offset().top;
+		$(showAllButtons[i]).offset({top:newTop});
+		$(showAllButtons[i]).height($(titles[i]).height());
+		$(showAllButtons[i]).width($(titles[i]).height());
+	}
+	//handle mouseover events
+	var animationDuration = 150;
+	for (var i = 0; i < containers.length; i++) {
+		function containerMouseEventHandler(currIndex) {
+			$(overlays[currIndex]).hover(function() {
+				$(showAllButtons[currIndex]).fadeTo(animationDuration, 1);
+			}, function() {
+				$(showAllButtons[currIndex]).fadeTo(animationDuration, 0);
+			});
+		}
+		containerMouseEventHandler(i);
+	}
+	//adjust the content div position
+	for (var i = 0; i < containers.length; i++) {
+		var titleBottom = $(titles[i]).offset().top + $(titles[i]).height();
+		var titleH = titleBottom - $(containers[i]).offset().top;
+		$(contents[i]).offset({top:titleBottom});
+		var contentH = $(contents[i]).height();
+		if (contentH + titleH < 210) {
+			contentH = 210 - titleH;
+		}
+		$(contents[i]).height(contentH);
+		$(containers[i]).height(titleH + contentH);
+	}
 	var expanded = new Array(containers.length);
 	expanded.fill(-1);
 	//test whether the containers are within window display range
@@ -23,11 +61,12 @@ $(document).ready(function() {
 		if (expanded[index] < 0) {
 			//shrink the entry
 			var originalH = containers[index].offsetHeight;
-			var hrRect = containers[index].children[2].getBoundingClientRect();
-			var newH = hrRect.top - containerRect.top - 2;
+			var newH = $(contents[index]).offset().top - 
+			           $(containers[index]).offset().top;
 			$(containers[index]).css("min-height", "0px");
 			$(containers[index]).animate({height:newH}, "fast", function() {
 				testContainerInRange();
+				$(showAllButtons[index]).rotate({duration:500, animateTo:180});
 			});
 			expanded[index] = originalH;
 		}else {
@@ -37,6 +76,7 @@ $(document).ready(function() {
 			$(containers[index]).animate({height:newH}, "fast", function() {
 				$(containers[index]).css("min-height", "210px");
 				testContainerInRange();
+				$(showAllButtons[index]).rotate({duration:500, animateTo:0});
 			});
 		}
 	};

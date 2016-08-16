@@ -12,6 +12,7 @@
 			  href="{% static 'node/bootstrap_3.3.6/css/bootstrap.min.css' %}" />
 		<!-- include jQuery library -->
 		<script src="{% static 'node/jquery_2.2.4.js' %}"></script>
+		<script src="{% static 'node/jQueryRotate.js' %}"></script>
 		<script src="{% static 'node/bootstrap_3.3.6/js/bootstrap.min.js' %}">
 		</script>
 		<script src="{% static 'node/about_js.js' %}"></script>
@@ -23,6 +24,7 @@
 		{% include "node/nav.html" %}
 		<div id="aboutMain">
 			<div id="navCol">
+				<h5>Currently Navigating:</h5>
 				<ul id="navColList">
 					{% if allInfo %}
 						{% for info in allInfo %}
@@ -35,10 +37,14 @@
 				{% if allInfo %}
 					{% for info in allInfo %}
 						<div class="infoEntry">
-							<img class="showAllButton" />
-							<h3>{{info.title}}</h3>
-							<hr>
-							<p>{{info.content|safe}}</p>
+							<h3 class="infoTitle">{{info.title}}</h3>
+							<div class="infoContent">
+								<p>{{info.content|safe}}</p>
+							</div>
+							<div class="overlay">
+								<img class="showAllButton" 
+								  src="{% static 'node/img/up_arrow.png' %}" />
+							</div>
 						</div>
 					{% endfor %}
 					<div id="placeholder">

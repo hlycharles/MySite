@@ -54,3 +54,8 @@ def contact(request):
     context = {}
     return render(request, "node/contact.html", context)
 
+#404 handler
+def handler404(request):
+    context = {}
+    return render(request, "node/index.html", context)
+
