@@ -1,14 +1,4 @@
 $(document).ready(function() {
-	//adjust the y coordinates of contents
-	/*
-	var margin = 90;
-	var contents = document.getElementsByClassName("contentDiv");
-	for (var i = 1; i < contents.length; i++) {
-		var prevDiv = $(contents[i - 1]);
-		var prevBottom = prevDiv.offset().top + prevDiv.height();
-		var newY = prevBottom + margin;
-		$(contents[i]).offset({top:newY});
-	} */
 	//adjust height of divs according to screen height
 	var screenH = $(window).height();
 	var minH = 50;

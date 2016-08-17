@@ -40,7 +40,7 @@ img#profile {
 #mainIntro > h2 {
 	position: relative;
 	color: white;
-	font-size: 60px;
+	font-size: 500%;
 	font-family: Helvetica, sans-serif;
 	margin-left: 10%;
 	margin-top: 10%;
@@ -54,7 +54,7 @@ img#profile {
 }
 
 #mainInfo > li {
-	font-size: 40px;
+	font-size: 300%;
 	color: white;
 }
 

@@ -4,6 +4,7 @@ $(document).ready(function() {
 	var projects = document.getElementsByClassName("projectBg");
 	var contents = document.getElementsByClassName("projectContent");
 	var overlays = document.getElementsByClassName("projectOverlay")
+	var descriptions = document.getElementsByClassName("projectDscr");
 	//adjust the height and position of buttons
 	var showMoreButtons = document.getElementsByClassName("showMoreButton");
 	var linkButtons = document.getElementsByClassName("linkButton");
@@ -45,6 +46,18 @@ $(document).ready(function() {
 		imgRect = projects[currIndex].getBoundingClientRect();
 		var top = imgRect.top - containerRect.top;
 		var target = top + adjustedH;
+		//adjust container size to show full text
+		var dscr = $(descriptions[currIndex]);
+		var textBottom = dscr.offset().top + dscr.height();
+		var containerBottom = containerRect.bottom;
+		if (textBottom > containerBottom) {
+			var diff = textBottom - containerBottom;
+			var currContainer = $(containers[currIndex]);
+			currContainer.height(currContainer.height() + diff + 5);
+			if (currContainer.height() > target) {
+				target = currContainer.height();
+			}
+		}
 		fullHeights.push(target);
 	};
 	for (var i = 0; i < projects.length; i++) {

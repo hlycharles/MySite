@@ -32,6 +32,7 @@ li#work a {
 
 .navCol > ul {
 	list-style-type: none;
+	padding-left: 20%;
 }
 
 .navCol > ul > li {
@@ -53,7 +54,7 @@ li#work a {
 	text-align: center;
 }
 
-.workContent > div {
+div.project {
 	position: relative;
 	margin-top: 40px;
 	margin-left: 25%;
@@ -143,7 +144,7 @@ img.showMoreButton:hover, img.linkButton:hover {
 }
 
 .projectContent > h3 {
-	position: absolute;
+	position: relative;
 	height: 30%;
 	width: 80%;
 	left: 5px;
@@ -153,11 +154,10 @@ img.showMoreButton:hover, img.linkButton:hover {
 }
 
 .projectContent > p {
-	position: absolute;
-	width: 80%;
-	height: 60%;
+	position: relative;
+	width: 100%;
+	height: auto;
 	left: 5px;
-	top: 40%;
 	text-align: left;
 	padding-left: 10px;
 }

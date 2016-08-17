@@ -25,5 +25,18 @@ $(document).ready(function() {
 	$(window).resize(function() {
 		fitImgHeight();
 	});
+	//check if image is hidden on small screens
+	var profileImg = $(document.getElementById("profile"));
+	var introDiv = $(document.getElementById("mainIntro"));
+	profileImg.on("load", function() {
+		if (profileImg.offset().left + profileImg.width() > 
+			introDiv.offset().left) {
+			profileImg.fadeTo(0, 0);
+			var widthInc = introDiv.offset().left - profileImg.offset().left;
+			var imgX = profileImg.offset().left;
+			introDiv.offset({left:imgX});
+			introDiv.width(widthInc + introDiv.width());
+		}
+	});
 });
 
