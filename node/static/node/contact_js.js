@@ -5,7 +5,7 @@ $(document).ready(function() {
 	var margin = 50;
 	var distToBot = 200;
 	var basicInfoDivs = document.getElementsByClassName("basicInfo");
-	var basicInfoTop = $(basicInfoDivs[0]).offset().top;
+	var basicInfoTop = $(basicInfoDivs[1]).offset().top;
 	var targetH = (screenH - basicInfoTop - margin * 2) / 2;
 	if (targetH < minH) {
 		targetH = minH;
@@ -34,4 +34,29 @@ $(document).ready(function() {
 		alignContentV(basicInfoDivs[i]);
 	}
 	alignContentV(socialDiv);
+	//adjust for portrait displays
+	var testPortraitDisplay = function() {
+		if ($(basicInfoDivs[0]).height() > $(basicInfoDivs[0]).width()) {
+			for (var i = 0; i < basicInfoDivs.length; i++) {
+				$(basicInfoDivs[i]).css("display", "block");
+				$(basicInfoDivs[i]).css("width", "90%");
+				if (i > 0) {
+					var prev = $(basicInfoDivs[i - 1]);
+					var prevBottom = prev.offset().top + prev.height();
+					var newTop = prevBottom + margin;
+					$(basicInfoDivs[i]).offset({top:newTop});
+				}
+			}
+			var last = $(basicInfoDivs[basicInfoDivs.length - 1]);
+			var newSocialDivY = last.offset().top + last.height() + margin;
+			$(socialDiv).offset({top:newSocialDivY});
+			var contactMain = $(document.getElementById("contactMain"));
+			contactMain.height($(socialDiv).offset().top + 
+				               $(socialDiv).height());
+		}
+	};
+	testPortraitDisplay();
+	$(window).resize(function() {
+		testPortraitDisplay();
+	});
 })

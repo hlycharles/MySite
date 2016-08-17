@@ -50,11 +50,11 @@ div#emailDiv > a {
 }
 
 div#socialDiv {
-	position: absolute;
 	left: 5%;
 	width: 90%;
 	background-color: #f05c34;
 	text-align: center;
+	display: block;
 }
 
 div#socialDiv > * {

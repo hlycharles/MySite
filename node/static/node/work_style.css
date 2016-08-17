@@ -124,18 +124,18 @@ div.project {
 
 img.showMoreButton {
 	position: absolute;
-	right: 15%;
+	right: 12%;
 	top: 1px;
-	width: 5%;
-	height: 5%;
+	width: 4%;
+	height: 4%;
 }
 
 img.linkButton {
 	position: absolute;
-	right: 5%;
+	right: 4%;
 	top: 1px;
-	width: 5%;
-	height: 5%;
+	width: 4%;
+	height: 4%;
 }
 
 img.showMoreButton:hover, img.linkButton:hover {
