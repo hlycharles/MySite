@@ -1,65 +1,45 @@
-div.titleBar {
-	position: fixed;
-	width: 100%;
-	height: 60px;
-	background-color: black;
-	margin-top: 0px;
-	margin-left: 0px;
-	padding: 0px;
-	z-index: 100;
-}
-
-.navList {
-	position: relative;
-	list-style: none;
-	text-align: center;
-	line-height: 60px;
-}
-
-.navList > li {
-	display:inline-block;
-}
-
 li#work a {
-	color: #6c6c6c;
-}
-
-.navList > li > a {
-	display: inline-block;
-	text-decoration:none; 
-	padding:0 30px;
-	color: white;
-	font-size: 15px;
-}
-
-.navList > li > a:hover {
-	color: gray;
+	box-shadow: inset 0px -2px #3293bc;
+	-webkit-box-shadow: inset 0px -2px #3293bc;
+	-moz-box-shadow: inset 0px -2px #3293bc;
 }
 
 .workMain {
 	position: absolute;
+	top: 0px;
 	width: 100%;
-	height: 100%;
+	height: auto;
+	min-height: 100%;
+	background-color: rgb(252, 252, 252);
 }
 
 .navCol {
 	position: fixed;
 	float: left;
-	width: 20%;
-	height: 60%;
+	width: 15%;
+	margin-top: 100px;
+	height: auto;
+	background-color: rgb(240, 240, 240);
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.navCol > h5 {
+	position: relative;
+	left: 10%;
+	font-weight: bold;
 }
 
 .navCol > ul {
-	position: absolute;
-	margin-top: 150px;
 	list-style-type: none;
+	padding-left: 20%;
 }
 
 .navCol > ul > li {
-	font-size: 18px;
+	font-size: 15px;
 	color: black;
-	padding: 10px;
-	padding-bottom: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	cursor: pointer;
 	cursor: hand;
 }
@@ -74,16 +54,16 @@ li#work a {
 	text-align: center;
 }
 
-.workContent > div {
+div.project {
 	position: relative;
-	margin-top: 50px;
+	margin-top: 40px;
 	margin-left: 25%;
 	width: 50%;
 	height: 280px;
 	display: block;
 	overflow: hidden;
-	box-shadow: 0px 3px 2px 1px rgba(0, 0, 0, 0.3);
-	border-radius: 10px;
+	/* box-shadow: 0px 3px 2px 1px rgba(0, 0, 0, 0.3);
+	border-radius: 10px; */
 }
 
 .workContent > div:first-child {
@@ -138,13 +118,33 @@ li#work a {
 	width: 100%;
 	height: 100%;
 	z-index: 20;
-	background-color: black;
 	top: 0;
 	left: 0;
 }
 
-.projectContent > h3 {
+img.showMoreButton {
 	position: absolute;
+	right: 12%;
+	top: 1px;
+	width: 4%;
+	height: 4%;
+}
+
+img.linkButton {
+	position: absolute;
+	right: 4%;
+	top: 1px;
+	width: 4%;
+	height: 4%;
+}
+
+img.showMoreButton:hover, img.linkButton:hover {
+	cursor: pointer;
+	cursor: hand;
+}
+
+.projectContent > h3 {
+	position: relative;
 	height: 30%;
 	width: 80%;
 	left: 5px;
@@ -154,11 +154,16 @@ li#work a {
 }
 
 .projectContent > p {
-	position: absolute;
-	width: 80%;
-	height: 60%;
+	position: relative;
+	width: 100%;
+	height: auto;
 	left: 5px;
-	top: 40%;
 	text-align: left;
 	padding-left: 10px;
+}
+
+div#placeholder {
+	position: relative;
+	margin-top: 80px;
+	height: 1px;
 }

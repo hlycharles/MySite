@@ -6,17 +6,49 @@ $(document).ready(function() {
 		var ctx = canvas.getContext("2d");
 		var bgData = ctx.createImageData(imgWidth, imgHeight);
 		for (var i = 0; i < bgData.data.length; i+=4) {
-			bgData.data[i+0] = 12;
-			bgData.data[i+1] = 20;
-			bgData.data[i+2] = 10;
+			bgData.data[i+0] = 249;
+			bgData.data[i+1] = 249;
+			bgData.data[i+2] = 249;
 			bgData.data[i+3] = 255;
 		}
 		ctx.putImageData(bgData, 0, 0);
 	};
-
 	var $canvas = document.getElementsByClassName("bgCanvas")[0];
 	createBg($canvas);
-
-	
+	//adjust the height of information div to be the same as image height
+	var fitImgHeight = function() {
+		var imgElem = document.getElementById("profile");
+		var imgH = $(imgElem).height();
+		$(document.getElementById("mainIntro")).height(imgH);
+	}
+	fitImgHeight();
+	//check if image is hidden on small screens
+	var checkImgOverlap = function() {
+		var profileImg = $(document.getElementById("profile"));
+		var introDiv = $(document.getElementById("mainIntro"));
+		var testOverlap = function() {
+			if (profileImg.offset().left + profileImg.width() > 
+				introDiv.offset().left) {
+				profileImg.fadeTo(0, 0);
+				var widthInc = introDiv.offset().left - 
+				               profileImg.offset().left;
+				var imgX = profileImg.offset().left;
+				introDiv.offset({left:imgX});
+				introDiv.width(widthInc + introDiv.width());
+			}
+		};
+		if (document.getElementById("profile").complete) {
+			testOverlap();
+		}else {
+			profileImg.on("load", function() {
+				testOverlap();
+			});
+		}
+	}
+	checkImgOverlap();
+	$(window).resize(function() {
+		fitImgHeight();
+		checkImgOverlap();
+	});
 });
 

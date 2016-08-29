@@ -4,6 +4,28 @@ $(document).ready(function() {
 	var projects = document.getElementsByClassName("projectBg");
 	var contents = document.getElementsByClassName("projectContent");
 	var overlays = document.getElementsByClassName("projectOverlay")
+	var descriptions = document.getElementsByClassName("projectDscr");
+	//adjust the height and position of buttons
+	var showMoreButtons = document.getElementsByClassName("showMoreButton");
+	var linkButtons = document.getElementsByClassName("linkButton");
+	for (var i = 0; i < showMoreButtons.length; i++) {
+		var newTop = $(containers[i]).height() * 0.05 + 
+		             $(containers[i]).offset().top;
+		$(showMoreButtons[i]).offset({top:newTop});
+		$(linkButtons[i]).offset({top:newTop});
+		var currW = $(showMoreButtons[i]).width();
+		$(showMoreButtons[i]).height(currW);
+		$(linkButtons[i]).height(currW);
+	}
+	//set actions for link buttons
+	for (var i = 0; i < linkButtons.length; i++) {
+		function linkClickHandler(currIndex) {
+			$(linkButtons[currIndex]).click(function() {
+				window.open("http://www.google.com", "_blank");
+			});
+		}
+		linkClickHandler(i);
+	}
 	var expanded = new Array(containers.length);
 	var fullHeights = new Array();
 	expanded.fill(false);
@@ -24,6 +46,18 @@ $(document).ready(function() {
 		imgRect = projects[currIndex].getBoundingClientRect();
 		var top = imgRect.top - containerRect.top;
 		var target = top + adjustedH;
+		//adjust container size to show full text
+		var dscr = $(descriptions[currIndex]);
+		var textBottom = dscr.offset().top + dscr.height();
+		var containerBottom = containerRect.bottom;
+		if (textBottom > containerBottom) {
+			var diff = textBottom - containerBottom;
+			var currContainer = $(containers[currIndex]);
+			currContainer.height(currContainer.height() + diff + 5);
+			if (currContainer.height() > target) {
+				target = currContainer.height();
+			}
+		}
 		fullHeights.push(target);
 	};
 	for (var i = 0; i < projects.length; i++) {
@@ -46,30 +80,44 @@ $(document).ready(function() {
 		contentElem.innerHTML = projectContents[i];
 		//setup interactions on projects
 		$(overlays[i]).fadeTo(0, 0);
-		$(overlays[i]).mouseover(function() {
-			$(this).fadeTo(100, 0.35);
+		$(overlays[i]).hover(function() {
+			$(this).fadeTo(200, 1);
+		}, function() {
+			$(this).fadeTo(200, 0);
 		});
-		$(overlays[i]).mouseout(function() {
-			$(this).fadeTo(100, 0);
-		});
-		function overlayClickHandler(currIndex) {
-			$(overlays[currIndex]).click(function() {
+		//adjust direction of arrow buttons
+		$(showMoreButtons[i]).rotate(180);
+		function buttonClickHandler(currIndex) {
+			$(showMoreButtons[currIndex]).click(function() {
 				if (expanded[currIndex]) {
-					$(containers[currIndex]).animate({height:"280px"}, "fast");
+					$(containers[currIndex]).animate({height:"280px"}, "fast", 
+						function() {
+							$(showMoreButtons[currIndex]).rotate({
+								duration:500, animateTo:180
+							});
+					});
 				}else {
 					if (fullHeights[currIndex] > 0) {
 						var target = fullHeights[currIndex];
 						$(containers[currIndex]).animate({height:target}, 
-							                              "fast");
+							                              "fast", function() {
+							$(showMoreButtons[currIndex]).rotate({
+								duration:500, animateTo:0
+							});
+					    });
 					}else {
 						$(containers[currIndex]).animate({height:"450px"}, 
-							                              "fast");
+							                              "fast", function() {
+							$(showMoreButtons[currIndex]).rotate({
+								duration:500, animateTo:0
+							});
+						});
 					}
 				}
 				expanded[currIndex] = !expanded[currIndex];
 			});
 		}
-		overlayClickHandler(i);
+		buttonClickHandler(i);
 	}
 	//first show all projects
 	var categoryList = document.getElementsByClassName("navColList")[0];
@@ -78,10 +126,6 @@ $(document).ready(function() {
 	categoryAll.style.fontWeight = "bold";
 	$(".workContent > p").hide();
 	for (var i = 0; i < allCategories.length; i++) {
-		var currItem = allCategories[i];
-		if (i > 0) {
-			$(currItem).css("color", categoryColors[i - 1]);
-		}
 		function categoryItemClickHandler(currIndex) {
 			$(allCategories[currIndex]).click(function() {
 				//first turn all categories into normal font

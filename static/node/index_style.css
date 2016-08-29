@@ -1,34 +1,7 @@
-div.titleBar {
-	position: fixed;
-	width: 100%;
-	height: 60px;
-	background-color: black;
-	margin-top: 0px;
-	margin-left: 0px;
-	padding: 0px;
-	z-index: 10;
-}
-
-.navList {
-	position: relative;
-	list-style: none;
-	text-align: center;
-	top: 20px;
-}
-
-/* TODO: why not .navItem */
-.navList > li {
-	display:inline;
-}
-.navList > li > a {
-	text-decoration:none; 
-	padding:0 30px;
-	color: white;
-	font-size: 15px;
-}
-
-.navList > li > a:hover {
-	color: gray;
+li#main a {
+	box-shadow: inset 0px -2px #3293bc;
+	-webkit-box-shadow: inset 0px -2px #3293bc;
+	-moz-box-shadow: inset 0px -2px #3293bc;
 }
 
 .main {
@@ -56,32 +29,32 @@ img#profile {
 #mainIntro {
 	position: absolute;
 	left: 40%;
-	margin-top: 60px;
-	width: 60%;
+	margin-top: 130px;
+	width: 40%;
 	height: 90%;
 	float: right;
 	z-index: 1;
+	background-color: #2b92be;
 }
 
 #mainIntro > h2 {
+	position: relative;
 	color: white;
-	font-size: 60px;
+	font-size: 500%;
 	font-family: Helvetica, sans-serif;
-	position: absolute;
-	margin-left: 1.6em;
-	margin-top: 1.6em;
-	border-bottom: 2px gray solid;
+	margin-left: 10%;
+	margin-top: 10%;
 }
 
 #mainInfo {
+	position: relative;
 	list-style-type: none;
-	margin-left: 4em;
-	margin-top: 18em;
-	position: absolute;
+	margin-left: 10%;
+	margin-top: 10%;
 }
 
 #mainInfo > li {
-	font-size: 40px;
+	font-size: 300%;
 	color: white;
 }
 
@@ -89,7 +62,7 @@ img#profile {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background-color: blue;
+	background-color: rgb(249, 249, 249);
 }
 
 #navButton {

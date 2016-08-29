@@ -1,0 +1,87 @@
+li#contact a {
+	box-shadow: inset 0px -2px #3293bc;
+	-webkit-box-shadow: inset 0px -2px #3293bc;
+	-moz-box-shadow: inset 0px -2px #3293bc;
+}
+
+/* main content */
+
+div#contactMain {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(249, 249, 249);
+}
+
+div.contentDiv > p, a#emailLink, 
+div.basicInfo > p {
+	font-size: 125%;
+	font-family: Helvetica, sans-serif;
+	color: black;
+}
+
+div.basicInfo {
+	margin-top: 100px;
+	width: 42.5%;
+	display: inline-block;
+	text-align: center;
+}
+
+div.basicInfo > * {
+	color: white;
+}
+
+div#phoneDiv {
+	margin-left: 5%;
+	background-color: #febd46;
+}
+
+div#phoneDiv > p {
+	color: white;
+}
+
+div#emailDiv {
+	margin-left: 5%;
+	background-color: #2b92be;
+}
+
+div#emailDiv > a {
+	color: white;
+}
+
+div#socialDiv {
+	left: 5%;
+	width: 90%;
+	background-color: #f05c34;
+	text-align: center;
+	display: block;
+}
+
+div#socialDiv > * {
+	color: white;
+}
+
+div.accountDiv {
+	width: 150px;
+	height: 50px;
+	display: inline-block;
+	margin-right: 50px;
+	text-align: left;
+	padding: 5px;
+}
+
+div.accountDiv:hover {
+	cursor: pointer;
+	cursor: hand;
+}
+
+img.socialLogo {
+	width: auto;
+	height: 100%;
+	display: inline-block;
+}
+
+div.accountDiv > p {
+	display: inline-block;
+	text-align: center;
+}
