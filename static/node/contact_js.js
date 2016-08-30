@@ -59,4 +59,16 @@ $(document).ready(function() {
 	$(window).resize(function() {
 		testPortraitDisplay();
 	});
+	//add actions for button clicks
+	var addLink = function(elem, address) {
+		$(elem).click(function() {
+			window.open(address, "_blank");
+		});
+	};
+	var githubDiv = document.getElementById("githubLink");
+	addLink(githubDiv, "https://github.com/hlycharles");
+	var linkedInDiv = document.getElementById("linkedInLink");
+	addLink(linkedInDiv, "https://www.linkedin.com/in/luyao-hou-2299a077");
+	var facebookDiv = document.getElementById("facebookLink");
+	addLink(facebookDiv, "https://www.facebook.com/hlycharles");
 })

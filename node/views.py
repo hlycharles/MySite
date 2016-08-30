@@ -25,12 +25,14 @@ def work(request):
     projectTitles = []
     projectContents = []
     projectCategories = []
+    projectLinks = []
     imgs = []
     for project in allProjects:
         currImages = project.projectimage_set.all()
         projectTitles.append(project.title)
         projectContents.append(project.content)
         projectCategories.append(project.category)
+        projectLinks.append(project.link)
         if (len(currImages) > 0):
             relativePath = currImages[0].image.url
             imgs.append(relativePath)
@@ -43,6 +45,7 @@ def work(request):
         "allProjects": allProjects,
         "projectTitles": json.dumps(projectTitles),
         "projectContents": json.dumps(projectContents),
+        "projectLinks": json.dumps(projectLinks),
         "projectCategories": json.dumps(projectCategories),
         "categoryColors": json.dumps(Project.CATEGORY_COLORS),
         "imgs": imgs,

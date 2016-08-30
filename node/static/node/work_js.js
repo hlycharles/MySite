@@ -19,12 +19,16 @@ $(document).ready(function() {
 	}
 	//set actions for link buttons
 	for (var i = 0; i < linkButtons.length; i++) {
-		function linkClickHandler(currIndex) {
-			$(linkButtons[currIndex]).click(function() {
-				window.open("http://www.google.com", "_blank");
-			});
+		if (projectLinks[i].length > 0) {
+			function linkClickHandler(currIndex) {
+				$(linkButtons[currIndex]).click(function() {
+					window.open(projectLinks[currIndex], "_blank");
+				});
+			}
+			linkClickHandler(i);
+		}else {
+			$(linkButtons[i]).hide();
 		}
-		linkClickHandler(i);
 	}
 	var expanded = new Array(containers.length);
 	var fullHeights = new Array();
