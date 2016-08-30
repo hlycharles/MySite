@@ -23,10 +23,10 @@ class Project(models.Model):
         (1, "Back End"),
         (2, "iOS"),
         (3, "Android"),
-        (4, "Computer Vision"),
-        (5, "Other"),
+        (4, "Desktop"),
+        (5, "Computer Vision"),
     )
-    CATEGORY_COLORS = ["black", "black", "black", "black", "black"]
+    CATEGORY_COLORS = ["black", "black", "black", "black", "black", "black"]
     category = models.SmallIntegerField(default=0, choices=CATEGORY_CHOICES)
 
     def __str__(self):
