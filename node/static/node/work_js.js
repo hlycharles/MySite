@@ -31,13 +31,13 @@ $(document).ready(function() {
 		}
 	}
 	var expanded = new Array(containers.length);
-	var fullHeights = new Array();
+	var fullHeights = new Array(containers.length);
 	expanded.fill(false);
 	var loadFullContainerHeight = function() {
 		//calculate the adjusted height of images
 		var width = projects[0].clientWidth;
 		var adjustedH = this.height * width / this.width;
-		var currIndex = fullHeights.length;
+		var currIndex = this.projIndex;
 		var imgRect = projects[currIndex].getBoundingClientRect();
 		var containerRect = containers[currIndex].getBoundingClientRect();
 		var diff = containerRect.bottom - imgRect.top;
@@ -62,20 +62,21 @@ $(document).ready(function() {
 				target = currContainer.height();
 			}
 		}
-		fullHeights.push(target);
+		fullHeights[currIndex] = target;
 	};
 	for (var i = 0; i < projects.length; i++) {
 		//set the background image for all project entires
 		if (imgs[i].length > 0) {
 			var url = imgs[i][0] == '/' ? imgs[i] : "/" + imgs[i];
 			projects[i].setAttribute("src", url);
-			//TODO: improve reliability when getting image sizes
 			var newImg = new Image();
+			newImg.projIndex = i;
 			newImg.onload = loadFullContainerHeight;
 			newImg.src = url;
 		}else {
 			$(projects[i]).css("background-color", "white");
-			fullHeights.push(-1);
+			fullHeights[i] = -1;
+			$(showMoreButtons[i]).hide();
 		}
 		//set text for each project
 		var titleElem = contents[i].children[0];
