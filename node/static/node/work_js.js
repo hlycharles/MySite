@@ -165,4 +165,18 @@ $(document).ready(function() {
 		}
 		categoryItemClickHandler(i);
 	}
+	//update the text within navigation column
+	var categories = document.getElementById("navColList").children;
+	var categoryCounts = new Array(categories.length + 1);
+	categoryCounts.fill(0);
+	categoryCounts[0] = containers.length;
+	for (var i = 0; i < projectCategories.length; i++) {
+		//plus 1 to account for the "all" category at the top
+		categoryCounts[projectCategories[i] + 1]++;
+	}
+	for (var i = 0; i < categories.length; i++) {
+		var currText = categories[i].innerHTML;
+		currText += " (" + categoryCounts[i] + ")";
+		categories[i].innerHTML = currText;
+	}
 });

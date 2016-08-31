@@ -4,7 +4,7 @@
 			div.titleBar {
 				position: fixed;
 				width: 100%;
-				height: 60px;
+				height: 4.3em;
 				background-color: white;
 				margin-top: 0px;
 				margin-left: 0px;
@@ -14,10 +14,9 @@
 			}
 
 			.navList {
-				position: relative;
 				list-style: none;
 				text-align: center;
-				line-height: 60px;
+				line-height: 4.3em;
 			}
 
 			.navList > li {
@@ -29,7 +28,7 @@
 				text-decoration:none; 
 				padding:0 30px;
 				color: black;
-				font-size: 15px;
+				font-size: 1.05em;
 			}
 
 			.navList > li > a:hover {
@@ -42,7 +41,7 @@
 			<ul class="navList">
 					<li id="main"><a href="{% url 'index' %}">Main</a></li>
 					<li id="about"><a href="{% url 'about' %}">About</a></li>
-					<li id="work"><a href="{% url 'work' %}">Work</a></li>
+					<li id="work"><a href="{% url 'work' %}">Projects</a></li>
 					<!-- <li><a href="http://google.com">Memos</a></li> -->
 					<li id="contact">
 						<a href="{% url 'contact' %}">Contact</a></li>
