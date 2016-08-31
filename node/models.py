@@ -17,14 +17,13 @@ class Project(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     link = models.CharField(max_length=200, blank=True)
+    rank = models.SmallIntegerField(default=0)
     #choices for project catetory
     CATEGORY_CHOICES = (
-        (0, "Front End"),
-        (1, "Back End"),
-        (2, "iOS"),
-        (3, "Android"),
-        (4, "Desktop"),
-        (5, "Computer Vision"),
+        (0, "Web"),
+        (1, "iOS"),
+        (2, "Android"),
+        (3, "Desktop"),
     )
     CATEGORY_COLORS = ["black", "black", "black", "black", "black", "black"]
     category = models.SmallIntegerField(default=0, choices=CATEGORY_CHOICES)

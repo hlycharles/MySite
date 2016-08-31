@@ -21,7 +21,8 @@ def about(request):
     return render(request, "node/about.html", context)
 
 def work(request):
-    allProjects = Project.objects.all()
+    #order the projects according to their importance
+    allProjects = Project.objects.all().order_by("-rank")
     projectTitles = []
     projectContents = []
     projectCategories = []
