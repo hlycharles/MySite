@@ -4,17 +4,9 @@
 <html>
 	<head>
 		<title>Luyao Hou</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		{% include "node/header.html" %}
 		<link type="text/css" rel="stylesheet" 
 		      href="{% static 'node/index_style.css' %}" />
-		<link type="text/css" rel="stylesheet" 
-			  href="{% static 'node/bootstrap_3.3.6/css/bootstrap.min.css' %}" />
-		<!-- favicon -->
-		<link rel="shortcut icon" href="{%  static 'node/img/favicon.ico' %}">
-		<!-- include jQuery library -->
-		<script src="{% static 'node/jquery_2.2.4.js' %}"></script>
-		<script src="{% static 'node/bootstrap_3.3.6/js/bootstrap.min.js' %}">
-		</script>
 		<script src="{% static 'node/index_js.js' %}"></script>
 		<script type="text/javascript">
 			var data = {{vals|safe}};
