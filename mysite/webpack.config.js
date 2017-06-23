@@ -23,6 +23,7 @@ module.exports = {
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.ts$/, loader: ['babel-loader', 'ts-loader'], exclude: /node_modules/ },
       { test: /\.tsx$/, loader: ['babel-loader', 'ts-loader'], exclude: /node_modules/ },
+      { test: /\.scss$/, loader: ['style-loader', 'css-loader', 'sass-loader'], exclude: /node_modules/ },
     ]
   },
   plugins: [HTMLWebpackPluginConfig],

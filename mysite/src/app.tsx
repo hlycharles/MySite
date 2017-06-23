@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import "./app.scss";
+
 export default function App() {
-    return <h1 color="black">New</h1>;
+    return <h1>New</h1>;
 }
