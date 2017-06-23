@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "description": "My personal website",
   "main": "index.jsx",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hlycharles/MySite.git"
+  },
+  "keywords": [
+    "site"
+  ],
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server",
     "test": "test"
   },
-  "keywords": [
-    "site"
-  ],
   "author": "Luyao Hou",
   "license": "ISC",
   "dependencies": {
