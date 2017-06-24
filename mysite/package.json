@@ -13,6 +13,7 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server",
+    "dev": "./build.sh",
     "lint-ts": "tslint -c tslint.json --project tsconfig.json",
     "test": "test"
   },
