@@ -7,7 +7,7 @@ interface TitleProps {
 export default function Title(props: TitleProps) {
 
     return (
-        <div>
+        <div className="title-container">
             {props.titles.map((value: string, index: number) => {
                 return <h1 key={index}>{value}</h1>;
             })}

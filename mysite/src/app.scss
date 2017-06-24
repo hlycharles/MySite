@@ -2,4 +2,7 @@
 
 .screen-container {
     margin: $top-spacing $side-spacing 0 $side-spacing;
+    overflow: hidden;
+    position: relative;
+    height: auto;
 }
