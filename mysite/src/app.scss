@@ -1,3 +1,5 @@
-h1 {
-    color: yellow;
+@import "./variable";
+
+.screen-container {
+    margin: $top-spacing $side-spacing 0 $side-spacing;
 }

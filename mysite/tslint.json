@@ -4,6 +4,21 @@
         "tslint:recommended"
     ],
     "jsRules": {},
-    "rules": {},
+    "rules": {
+        "interface-name": [
+            true,
+            "never-prefix"
+        ],
+        "member-access": [
+            false
+        ],
+        "no-unused-variable": [
+            true
+        ],
+        "array-type": [
+            true,
+            "generic"
+        ]
+    },
     "rulesDirectory": []
 }
