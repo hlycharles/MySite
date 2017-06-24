@@ -1,6 +1,6 @@
 import * as React from "react";
 
-interface BulletinProps {
+export interface BulletinProps {
     color: string;
     img: string;
 }
