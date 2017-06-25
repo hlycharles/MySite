@@ -3,6 +3,7 @@ import * as React from "react";
 import { PropTypes } from "react";
 
 import AppUi from "./appUi";
+import ModalView from "./modalView";
 
 import "./app.scss";
 
@@ -33,7 +34,11 @@ export default class App extends
         return (
             <div className="screen-container">
                 <AppUi />
-                {this.state.modalView}
+                {
+                    (this.state.modalView) ?
+                    <ModalView view={this.state.modalView} /> :
+                    null
+                }
             </div>
         );
     }

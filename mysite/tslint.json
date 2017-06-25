@@ -18,6 +18,10 @@
         "array-type": [
             true,
             "generic"
+        ],
+        "no-console": [
+            true,
+            "error"
         ]
     },
     "rulesDirectory": []

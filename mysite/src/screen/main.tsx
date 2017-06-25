@@ -28,6 +28,7 @@ export default class MainScreen extends
     private _renderPinBoard(): React.ReactNode {
         const resumeProp: BulletinProps = {
             class: "resume",
+            detailedView: <p>Hi</p>,
         };
         return (
             <BulletinBoard

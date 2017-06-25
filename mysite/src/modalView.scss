@@ -1,0 +1,29 @@
+@import "./variable";
+
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    .modal-content {
+        position: absolute;
+        color: white;
+        background-color: white;
+        left: $side-spacing;
+        right: $side-spacing;
+        top: $top-spacing;
+        bottom: $top-spacing;
+    }
+
+    .modal-button {
+        position: fixed;
+        top: $top-spacing;
+        right: $side-spacing;
+        width: $close-button-side;
+        height: $close-button-side;
+        background-color: green;
+    }
+}

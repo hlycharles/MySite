@@ -1,17 +1,33 @@
+import autobind from "autobind-decorator";
 import * as React from "react";
+import { PropTypes } from "react";
 
 import "./bulletin.scss";
 
 export interface BulletinProps {
     class: string;
     img?: string;
+    detailedView?: React.ReactNode;
 }
 
-export default function Bulletin(props: BulletinProps) {
+export default class Bulletin extends
+                     React.Component<BulletinProps, never> {
 
-    const className = "bulletin ".concat(props.class);
+    static contextTypes = {
+        loadModalView: PropTypes.func.isRequired,
+    };
 
-    return (
-        <div className={className} />
-    );
+    render() {
+        const className = "bulletin ".concat(this.props.class);
+        return (
+            <div className={className} onClick={this._handleClick}/>
+        );
+    }
+
+    @autobind
+    private _handleClick() {
+        if (this.props.detailedView) {
+            this.context.loadModalView(this.props.detailedView);
+        }
+    }
 }

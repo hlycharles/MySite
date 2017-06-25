@@ -22,6 +22,8 @@ export default function BulletinBoard(props: BulletinBoardProps) {
                             <Bulletin
                                 class={value.class}
                                 img={value.img}
+                                detailedView={value.detailedView}
+                                key={index}
                             />
                         );
                     },
