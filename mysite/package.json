@@ -15,6 +15,7 @@
     "start": "webpack-dev-server",
     "dev": "./build.sh",
     "lint-ts": "tslint -c tslint.json --project tsconfig.json",
+    "lint-style": "stylelint 'src/**/*.scss'",
     "test": "test"
   },
   "author": "Luyao Hou",
@@ -42,6 +43,7 @@
     "npm-run-all": "^4.0.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
+    "stylelint": "^7.11.1",
     "tslint-loader": "^3.5.3",
     "webpack": "^2.2.0",
     "webpack-dev-server": "^2.5.0"
