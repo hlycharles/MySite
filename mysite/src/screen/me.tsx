@@ -2,50 +2,36 @@ import * as React from "react";
 
 import { BulletinProps } from "../screenComponent/bulletin";
 import BulletinBoard from "../screenComponent/bulletinBoard";
-import Navigator from "../screenComponent/navigator";
+import Navigator, { PANEL } from "../screenComponent/navigator";
 import Title from "../screenComponent/title";
 
 import "./style.scss";
 
-export default class MainScreen extends
+export default class MeScreen extends
                      React.Component<never, never> {
 
     render() {
         return (
             <div>
                 <div className="header-container">
-                    <Title titles={["Luyao Hou"]} />
-                    <Navigator panel={null} />
+                    <Title titles={["Me"]} />
+                    <Navigator panel={PANEL.ME} />
                 </div>
                 <div className="content-container">
-                    {this._renderPinBoard()}
-                    {this._renderInstaBoard()}
+                    {this._renderRowOne()}
                 </div>
             </div>
         );
     }
 
-    private _renderPinBoard(): React.ReactNode {
+    private _renderRowOne(): React.ReactNode {
         const resumeProp: BulletinProps = {
             class: "resume",
             detailedView: <p>Hi</p>,
         };
         return (
             <BulletinBoard
-                title="PINNED"
                 bulletinProps={[resumeProp]}
-            />
-        );
-    }
-
-    private _renderInstaBoard(): React.ReactNode {
-        const instaProp: BulletinProps = {
-            class: "insta",
-        };
-        return (
-            <BulletinBoard
-                title="INSTAGRAM"
-                bulletinProps={[instaProp]}
             />
         );
     }

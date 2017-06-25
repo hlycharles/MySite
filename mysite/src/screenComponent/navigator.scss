@@ -1,0 +1,11 @@
+@import "../variable";
+
+.nav {
+    list-style-type: none;
+
+    li {
+        display: inline;
+        margin-left: $base-spacing;
+        font-family: $nav-font;
+    }
+}

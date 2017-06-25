@@ -35,9 +35,8 @@ export default class App extends
             <div className="screen-container">
                 <AppUi />
                 {
-                    (this.state.modalView) ?
-                    <ModalView view={this.state.modalView} /> :
-                    null
+                    this.state.modalView &&
+                    <ModalView view={this.state.modalView} />
                 }
             </div>
         );

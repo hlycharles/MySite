@@ -6,7 +6,7 @@ import Bulletin, { BulletinProps } from "./bulletin";
 import "./bulletinBoard.scss";
 
 interface BulletinBoardProps {
-    title: string;
+    title?: string;
     bulletinProps: Array<BulletinProps>;
 }
 
@@ -14,7 +14,7 @@ export default function BulletinBoard(props: BulletinBoardProps) {
 
     return (
         <div>
-            <BoardHeader title={props.title} />
+            {props.title && <BoardHeader title={props.title} />}
             <div className="bulletin-container">
                 {props.bulletinProps.map(
                     (value: BulletinProps, index: number) => {

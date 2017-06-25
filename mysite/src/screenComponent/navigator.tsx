@@ -1,4 +1,10 @@
+import autobind from "autobind-decorator";
 import * as React from "react";
+import { PropTypes } from "react";
+
+import { Screen } from "../appUi";
+
+import "./navigator.scss";
 
 export enum PANEL {
     ME,
@@ -8,6 +14,11 @@ export enum PANEL {
     CONTACT,
 }
 
+interface PanelOption {
+    label: string;
+    action: () => void;
+}
+
 interface NavigatorProps {
     panel: PANEL | null;
 }
@@ -15,11 +26,43 @@ interface NavigatorProps {
 export default class Navigator extends
                      React.Component<NavigatorProps, never> {
 
+    static contextTypes = {
+        switchScreen: PropTypes.func.isRequired,
+    };
+
     render() {
+        const panels: Array<PanelOption> = [
+            {
+                action: this._switchToMe,
+                label: "Me",
+            },
+            {
+                action: this._switchToMain,
+                label: "Resume",
+            },
+        ];
         return (
             <div className="panel-container">
-                <h4>ME</h4>
+                <ul className="nav">
+                    {
+                        panels.map((option: PanelOption) => (
+                            <li key={option.label} onClick={option.action}>
+                                {option.label}
+                            </li>
+                        ))
+                    }
+                </ul>
             </div>
         );
+    }
+
+    @autobind
+    private _switchToMain() {
+        this.context.switchScreen(Screen.MAIN);
+    }
+
+    @autobind
+    private _switchToMe() {
+        this.context.switchScreen(Screen.ME);
     }
 }
