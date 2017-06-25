@@ -9,7 +9,7 @@ export default function Title(props: TitleProps) {
     return (
         <div className="title-container">
             {props.titles.map((value: string, index: number) => {
-                return <h1 key={index}>{value}</h1>;
+                return <h2 key={index}>{value}</h2>;
             })}
         </div>
     );

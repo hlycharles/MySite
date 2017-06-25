@@ -1,13 +1,38 @@
 @import "../variable";
 
-.title-container {
-    float: left;
-    padding: 0;
+.header-container {
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: $header-margin;
+
+    .title-container {
+        float: left;
+        padding: 0;
+        height: auto;
+
+        h2 {
+            font-weight: lighter;
+            font-family: $main-title-font, "Helvetica Neue", Helvetica, serif;
+            font-size: $page-title-size;
+            margin: 0;
+        }
+    }
+
+    .panel-container {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 0;
+
+        h4 {
+            margin: 0;
+        }
+    }
 }
 
-.panel-container {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: 0;
+.content-container {
+    position: relative;
+    overflow: hidden;
+    height: auto;
 }

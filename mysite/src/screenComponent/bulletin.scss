@@ -1,0 +1,14 @@
+@import "../variable";
+
+.bulletin {
+    width: $bulletin-width;
+    height: $bulletin-height;
+
+    &.resume {
+        background-color: $resume-board-color;
+    }
+
+    &.insta {
+        background-color: $insta-board-color;
+    }
+}

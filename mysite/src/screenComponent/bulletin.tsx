@@ -1,21 +1,17 @@
 import * as React from "react";
 
+import "./bulletin.scss";
+
 export interface BulletinProps {
-    color: string;
-    img: string;
+    class: string;
+    img?: string;
 }
 
 export default function Bulletin(props: BulletinProps) {
 
-    const style = {
-        backgroundColor: props.color,
-    };
+    const className = "bulletin ".concat(props.class);
 
     return (
-        <div
-            className="bulletin"
-            style={style}
-        >
-        </div>
+        <div className={className} />
     );
 }

@@ -1,3 +1,17 @@
 $base-spacing: 12px;
 $top-spacing: ($base-spacing * 2);
 $side-spacing: ($base-spacing * 8);
+$board-spacing: ($base-spacing * 5);
+
+$header-margin: ($base-spacing * 3);
+
+$bulletin-width: percentage(24/100);
+$bulletin-margin: (1 - (3 * $bulletin-width)) / 2;
+$bulletin-height: 200px;
+
+$insta-board-color: grey;
+$resume-board-color: #7aadf4;
+
+$page-title-size: 50px;
+
+$main-title-font: "Futura";
