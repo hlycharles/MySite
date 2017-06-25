@@ -5,7 +5,7 @@ export interface BoardHeaderProps {
     img?: string;
 }
 
-export default function BoardHeaderProps(props: BoardHeaderProps) {
+export default function BoardHeader(props: BoardHeaderProps) {
 
     return (
         <div>
