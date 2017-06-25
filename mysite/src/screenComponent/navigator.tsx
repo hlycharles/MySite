@@ -37,7 +37,7 @@ export default class Navigator extends
                 label: "Me",
             },
             {
-                action: this._switchToMain,
+                action: this._switchToResume,
                 label: "Resume",
             },
         ];
@@ -57,12 +57,12 @@ export default class Navigator extends
     }
 
     @autobind
-    private _switchToMain() {
-        this.context.switchScreen(Screen.MAIN);
+    private _switchToMe() {
+        this.context.switchScreen(Screen.ME);
     }
 
     @autobind
-    private _switchToMe() {
-        this.context.switchScreen(Screen.ME);
+    private _switchToResume() {
+        this.context.switchScreen(Screen.RESUME);
     }
 }

@@ -4,10 +4,12 @@ import { PropTypes } from "react";
 
 import MainScreen from "./screen/main";
 import MeScreen from "./screen/me";
+import ResumeScreen from "./screen/resume";
 
 export enum Screen {
     MAIN,
     ME,
+    RESUME,
 }
 
 interface AppUiState {
@@ -37,6 +39,8 @@ export default class AppUi extends
                 return <MainScreen />;
             case Screen.ME:
                 return <MeScreen />;
+            case Screen.RESUME:
+                return <ResumeScreen />;
             default:
                 return <MainScreen />;
         }
