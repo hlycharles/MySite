@@ -6,3 +6,6 @@ yarn.lock
 
 #build products
 build/
+
+#assets
+asset/

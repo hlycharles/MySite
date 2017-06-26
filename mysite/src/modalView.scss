@@ -1,29 +1,37 @@
 @import "./variable";
 
-.modal-container {
+.modal-boundary {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: $dim-background-color;
 
-    .modal-content {
+    .modal-container {
         position: absolute;
-        color: white;
-        background-color: white;
-        left: $side-spacing;
-        right: $side-spacing;
-        top: $top-spacing;
-        bottom: $top-spacing;
-    }
+        left: $base-spacing;
+        right: $base-spacing;
+        top: $base-spacing;
+        bottom: $base-spacing;
+        background-color: $transparent-background-color;
 
-    .modal-button {
-        position: fixed;
-        top: $top-spacing;
-        right: $side-spacing;
-        width: $close-button-side;
-        height: $close-button-side;
-        background-color: green;
+        .modal-content {
+            position: absolute;
+            background-color: $transparent-background-color;
+            top: $close-button-side;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .modal-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: $close-button-side;
+            height: $close-button-side;
+            background-color: blue;
+        }
     }
 }

@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import VerticalLayoutDetail from "../detailComponent/verticalLayoutDetail";
 import { BulletinProps } from "../screenComponent/bulletin";
 import BulletinBoard from "../screenComponent/bulletinBoard";
 import Navigator from "../screenComponent/navigator";
@@ -28,7 +29,9 @@ export default class MainScreen extends
     private _renderPinBoard(): React.ReactNode {
         const resumeProp: BulletinProps = {
             class: "resume",
-            detailedView: <p>Hi</p>,
+            detailedView: (
+                <VerticalLayoutDetail content="HI" />
+            ),
         };
         return (
             <BulletinBoard

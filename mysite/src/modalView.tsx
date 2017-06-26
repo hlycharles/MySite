@@ -17,11 +17,13 @@ export default class ModalView extends
 
     render() {
         return (
-            <div className="modal-container">
-                <div className="modal-content">
-                    {this.props.view}
+            <div className="modal-boundary">
+                <div className="modal-container">
+                    <div className="modal-button" onClick={this._handleClick} />
+                    <div className="modal-content">
+                        {this.props.view}
+                    </div>
                 </div>
-                <div className="modal-button" onClick={this._handleClick} />
             </div>
         );
     }
