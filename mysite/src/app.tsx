@@ -1,6 +1,6 @@
 import autobind from "autobind-decorator";
+import PropTypes from "prop-types";
 import * as React from "react";
-import { PropTypes } from "react";
 
 import AppUi from "./appUi";
 import ModalView from "./modalView";
