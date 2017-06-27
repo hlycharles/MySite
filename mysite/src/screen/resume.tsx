@@ -13,6 +13,11 @@ export default function ResumeScreen() {
                 <Title titles={["Resume"]} />
                 <Navigator panel={PANEL.RESUME} />
             </div>
+            <div>
+                <object type="image/svg+xml" data="../../asset/doc/resume.svg">
+                    Bad Browser
+                </object>
+            </div>
         </div>
     );
 }
