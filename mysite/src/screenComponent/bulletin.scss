@@ -1,14 +1,25 @@
 @import "../variable";
 
 .bulletin {
+    float: left;
     width: $bulletin-width;
     height: $bulletin-height;
+    margin-left: $bulletin-margin;
+    border-radius: $standard-border-radius;
 
     &.resume {
+        background-color: $resume-board-color;
+    }
+
+    &.site-github {
         background-color: $resume-board-color;
     }
 
     &.insta {
         background-color: $insta-board-color;
     }
+}
+
+.bulletin:first-child {
+    margin-left: 0;
 }

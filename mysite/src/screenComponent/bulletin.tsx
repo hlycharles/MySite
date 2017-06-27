@@ -20,7 +20,7 @@ export default class Bulletin extends
     render() {
         const className = "bulletin ".concat(this.props.class);
         return (
-            <div className={className} onClick={this._handleClick}/>
+            <div className={className} onClick={this._handleClick} />
         );
     }
 

@@ -2,21 +2,33 @@ $base-spacing: 12px;
 $top-spacing: ($base-spacing * 2);
 $side-spacing: ($base-spacing * 8);
 $board-spacing: ($base-spacing * 5);
+$img-content-spacing: ($base-spacing * 2);
 
 $header-margin: ($base-spacing * 3);
 
-$bulletin-width: percentage(24/100);
-$bulletin-margin: (1 - (3 * $bulletin-width)) / 2;
+$bulletin-width: percentage(30/100);
+$bulletin-margin: (percentage(1) - ($bulletin-width * 3)) / 2;
 $bulletin-height: 200px;
 
 $close-button-side: 30px;
 
+$standard-border-width: 1px;
+$standard-border-radius: 5px;
+
+$category-title-padding-v: 3px;
+$category-title-padding-h: 6px;
+
 $transparent-background-color: rgba(0, 0, 0, 0);
 $dim-background-color: rgba(0, 0, 0, 0.8);
 $insta-board-color: grey;
-$resume-board-color: #7aadf4;
+$resume-board-color: rgba(122, 173, 244, 0.4);
+$gray-border-color: rgba(200, 200, 200, 1);
+
+$gray-text-color: rgba(160, 160, 160, 1);
 
 $page-title-size: 50px;
+$content-size: 12px;
 
 $main-title-font: "Helvetica Neue", Helvetica, sans-serif;
+$category-title-font: "Helvetica Neue", Helvetica, sans-serif;
 $nav-font: "Helvetica Neue", Helvetica, sans-serif;

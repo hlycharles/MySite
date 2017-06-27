@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import HorizontalLayoutDetail from "../detailComponent/horizontalLayoutDetail";
 import VerticalLayoutDetail from "../detailComponent/verticalLayoutDetail";
 import { BulletinProps } from "../screenComponent/bulletin";
 import BulletinBoard from "../screenComponent/bulletinBoard";
@@ -30,13 +31,16 @@ export default class MainScreen extends
         const resumeProp: BulletinProps = {
             class: "resume",
             detailedView: (
-                <VerticalLayoutDetail content="HI" />
+                <VerticalLayoutDetail content="HI\nLONGER" />
             ),
+        };
+        const siteGithubProp: BulletinProps = {
+            class: "site-github",
         };
         return (
             <BulletinBoard
                 title="PINNED"
-                bulletinProps={[resumeProp]}
+                bulletinProps={[resumeProp, siteGithubProp]}
             />
         );
     }
@@ -44,6 +48,9 @@ export default class MainScreen extends
     private _renderInstaBoard(): React.ReactNode {
         const instaProp: BulletinProps = {
             class: "insta",
+            detailedView: (
+                <HorizontalLayoutDetail content="LONGHI\nWU" />
+            ),
         };
         return (
             <BulletinBoard

@@ -1,0 +1,40 @@
+@import "../variable";
+
+.detail-horizontal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: $base-spacing;
+
+    .detail-img {
+        border: none;
+        width: 50%;
+        height: 100%;
+        margin-bottom: $base-spacing;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    .detail-content {
+        position: absolute;
+        left: 50%;
+        top: $base-spacing;
+        right: $base-spacing;
+        bottom: $base-spacing;
+        padding-left: $img-content-spacing;
+
+        p {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            white-space: pre-wrap;
+        }
+    }
+}

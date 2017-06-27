@@ -1,20 +1,20 @@
 import * as React from "react";
 
-import "./verticalLayoutDetail.scss";
+import "./horizontalLayoutDetail.scss";
 
-interface VerticalLayoutDetailProps {
+interface HorizontalLayoutDetailProps {
     img?: string;
     content: string;
 }
 
-type Props = VerticalLayoutDetailProps;
+type Props = HorizontalLayoutDetailProps;
 
 export default class ModalView extends
                      React.Component<Props, never> {
 
     render() {
         return (
-            <div className="detail-vertical">
+            <div className="detail-horizontal">
                 <div className="detail-img">
                     <img src="../../asset/img/canada.jpg" />
                 </div>
