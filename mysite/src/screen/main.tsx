@@ -33,9 +33,11 @@ export default class MainScreen extends
             detailedView: (
                 <VerticalLayoutDetail content="HI\nLONGER" />
             ),
+            img: "../../asset/img/canada.jpg",
         };
         const siteGithubProp: BulletinProps = {
             class: "site-github",
+            img: "../../asset/img/canada.jpg",
         };
         return (
             <BulletinBoard
@@ -51,6 +53,7 @@ export default class MainScreen extends
             detailedView: (
                 <HorizontalLayoutDetail content="LONGHI\nWU" />
             ),
+            img: "../../asset/img/canada.jpg",
         };
         return (
             <BulletinBoard

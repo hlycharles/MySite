@@ -7,6 +7,14 @@
     margin-left: $bulletin-margin;
     border-radius: $standard-border-radius;
 
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: $standard-border-radius;
+        border-style: none;
+        object-fit: cover;
+    }
+
     &.resume {
         background-color: $resume-board-color;
     }
