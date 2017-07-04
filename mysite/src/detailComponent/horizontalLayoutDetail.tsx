@@ -3,7 +3,7 @@ import * as React from "react";
 import "./horizontalLayoutDetail.scss";
 
 interface HorizontalLayoutDetailProps {
-    img?: string;
+    img: string;
     content: string;
 }
 
@@ -16,7 +16,7 @@ export default class ModalView extends
         return (
             <div className="detail-horizontal">
                 <div className="detail-img">
-                    <img src="../../asset/img/canada.jpg" />
+                    <img src={this.props.img} />
                 </div>
                 <div className="detail-content">
                     <p className="content-wrapper">

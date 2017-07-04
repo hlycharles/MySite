@@ -9,8 +9,48 @@ import Title from "../screenComponent/title";
 
 import "./style.scss";
 
+interface MyWindow extends Window {
+    processInsta(data: any): void;
+}
+
+declare var window: MyWindow;
+
+interface InstaParams {
+    url: string;
+    locationName?: string;
+}
+
+interface MainScreenState {
+    instaParams: Array<InstaParams>;
+}
+
+const instaNum = 3;
+
 export default class MainScreen extends
-                     React.Component<never, never> {
+                     React.Component<{}, MainScreenState> {
+
+    state = {
+        instaParams: [],
+    };
+
+    componentDidMount() {
+        window.processInsta = (data: any) => {
+            for (const d of data.data) {
+                const imgUrl: string = d.images.standard_resolution.url;
+                const instaParams: Array<InstaParams> = this.state.instaParams;
+                instaParams.push({
+                    locationName: d.location.name,
+                    url: imgUrl,
+                });
+            }
+            // update rendering
+            this.forceUpdate();
+        };
+        const srcElement = document.createElement("script");
+        const url = this._generateUrl();
+        srcElement.setAttribute("src", url);
+        document.body.appendChild(srcElement);
+    }
 
     render() {
         return (
@@ -25,6 +65,16 @@ export default class MainScreen extends
                 </div>
             </div>
         );
+    }
+
+    private _generateUrl() {
+        const token = "247738439.638e650.fd3e68f07430460e95a04a22d583eead";
+        const urlPrefix = "https://api.instagram.com/";
+        const url = urlPrefix.concat("v1/users/self/media/recent?");
+        const urlToken = url.concat("access_token=" + token);
+        const urlCount = urlToken.concat("&count=" + instaNum);
+        const urlCallback = urlCount.concat("&callback=processInsta");
+        return urlCallback;
     }
 
     private _renderPinBoard(): React.ReactNode {
@@ -52,18 +102,27 @@ export default class MainScreen extends
     }
 
     private _renderInstaBoard(): React.ReactNode {
-        const instaProp: BulletinProps = {
-            class: "insta",
-            cover: true,
-            detailedView: (
-                <HorizontalLayoutDetail content="LONGHI\nWU" />
-            ),
-            img: "../../asset/img/canada.jpg",
-        };
+        const instaProps: Array<BulletinProps> = this.state.instaParams.map(
+            (param: InstaParams) => {
+                const instaProp: BulletinProps = {
+                    class: "insta",
+                    cover: true,
+                    detailedView: (
+                        <HorizontalLayoutDetail
+                            img={param.url}
+                            content={param.locationName || ""}
+                        />
+                    ),
+                    headerText: param.locationName,
+                    img: param.url,
+                };
+                return instaProp;
+            },
+        );
         return (
             <BulletinBoard
                 title="INSTAGRAM"
-                bulletinProps={[instaProp]}
+                bulletinProps={instaProps}
             />
         );
     }

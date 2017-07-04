@@ -8,7 +8,7 @@ import Title from "../screenComponent/title";
 import "./style.scss";
 
 export default class MeScreen extends
-                     React.Component<never, never> {
+                     React.Component<{}, never> {
 
     render() {
         return (

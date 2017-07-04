@@ -12,6 +12,7 @@
         position: relative;
         left: $base-spacing;
         top: $base-spacing;
+        z-index: 1;
     }
 
     img {

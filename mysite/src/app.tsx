@@ -12,7 +12,7 @@ interface AppState {
 }
 
 export default class App extends
-                     React.Component<never, AppState> {
+                     React.Component<{}, AppState> {
 
     static childContextTypes = {
         loadModalView: PropTypes.func.isRequired,

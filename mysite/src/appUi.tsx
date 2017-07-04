@@ -17,7 +17,7 @@ interface AppUiState {
 }
 
 export default class AppUi extends
-                     React.Component<never, AppUiState> {
+                     React.Component<{}, AppUiState> {
 
     static childContextTypes = {
         switchScreen: PropTypes.func.isRequired,
