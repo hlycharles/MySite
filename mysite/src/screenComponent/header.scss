@@ -17,7 +17,7 @@
         &.light {
             color: white;
             border: white $standard-border-width solid;
-            background-color: rgba(210, 210, 210, 0.3);
+            background-color: $light-header-background-color;
         }
     }
 }
