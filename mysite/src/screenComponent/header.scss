@@ -1,0 +1,23 @@
+@import "../variable";
+
+.header-stripe-container {
+
+    h5 {
+        margin: 0 0 $top-spacing 0;
+        display: inline-block;
+        padding: $category-title-padding-v $category-title-padding-h;
+        font-family: $category-title-font;
+        border-radius: $standard-border-radius;
+
+        &.gray {
+            color: $gray-text-color;
+            border: $gray-border-color $standard-border-width solid;
+        }
+
+        &.light {
+            color: white;
+            border: white $standard-border-width solid;
+            background-color: rgba(210, 210, 210, 0.3);
+        }
+    }
+}

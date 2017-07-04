@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import BoardHeader from "./boardHeader";
 import Bulletin, { BulletinProps } from "./bulletin";
+import Header from "./header";
 
 import "./bulletinBoard.scss";
 
@@ -14,7 +14,7 @@ export default function BulletinBoard(props: BulletinBoardProps) {
 
     return (
         <div>
-            {props.title && <BoardHeader title={props.title} />}
+            {props.title && <Header title={props.title} theme="gray" />}
             <div className="bulletin-container">
                 {props.bulletinProps.map(
                     (value: BulletinProps, index: number) => {
@@ -23,6 +23,8 @@ export default function BulletinBoard(props: BulletinBoardProps) {
                                 class={value.class}
                                 img={value.img}
                                 detailedView={value.detailedView}
+                                cover={value.cover}
+                                headerText={value.headerText}
                                 key={index}
                             />
                         );

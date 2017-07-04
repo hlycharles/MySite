@@ -30,14 +30,18 @@ export default class MainScreen extends
     private _renderPinBoard(): React.ReactNode {
         const resumeProp: BulletinProps = {
             class: "resume",
+            cover: false,
             detailedView: (
                 <VerticalLayoutDetail content="HI\nLONGER" />
             ),
-            img: "../../asset/img/canada.jpg",
+            headerText: "Resume",
+            img: "../../asset/img/resume_icon.png",
         };
         const siteGithubProp: BulletinProps = {
             class: "site-github",
-            img: "../../asset/img/canada.jpg",
+            cover: false,
+            headerText: "Github",
+            img: "../../asset/img/git_icon.png",
         };
         return (
             <BulletinBoard
@@ -50,6 +54,7 @@ export default class MainScreen extends
     private _renderInstaBoard(): React.ReactNode {
         const instaProp: BulletinProps = {
             class: "insta",
+            cover: true,
             detailedView: (
                 <HorizontalLayoutDetail content="LONGHI\nWU" />
             ),

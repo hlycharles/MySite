@@ -27,6 +27,7 @@ export default class MeScreen extends
     private _renderRowOne(): React.ReactNode {
         const resumeProp: BulletinProps = {
             class: "resume",
+            cover: false,
             detailedView: <p>Hi</p>,
         };
         return (

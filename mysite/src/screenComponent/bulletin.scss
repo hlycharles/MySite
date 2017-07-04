@@ -1,18 +1,37 @@
 @import "../variable";
 
 .bulletin {
+    position: relative;
     float: left;
     width: $bulletin-width;
     height: $bulletin-height;
     margin-left: $bulletin-margin;
     border-radius: $standard-border-radius;
 
+    >.bulletin-header {
+        position: relative;
+        left: $base-spacing;
+        top: $base-spacing;
+    }
+
     img {
-        width: 100%;
-        height: 100%;
+        position: absolute;
+        right: 0;
+        bottom: 0;
         border-radius: $standard-border-radius;
         border-style: none;
-        object-fit: cover;
+
+        &.cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &.margin {
+            width: $thumbnail-dimension;
+            height: $thumbnail-dimension;
+            object-fit: contain;
+        }
     }
 
     &.resume {
@@ -20,7 +39,7 @@
     }
 
     &.site-github {
-        background-color: $resume-board-color;
+        background-color: $github-board-color;
     }
 
     &.insta {
