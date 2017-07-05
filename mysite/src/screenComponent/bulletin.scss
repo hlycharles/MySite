@@ -46,6 +46,34 @@
     &.insta {
         background-color: $insta-board-color;
     }
+
+    &.cmu {
+        background-color: $cmu-board-color;
+    }
+
+    &.arsenal {
+        background-color: $arsenal-board-color;
+    }
+
+    &.major {
+        background-color: $major-board-color;
+    }
+
+    &.reading {
+        background-color: $reading-board-color;
+    }
+
+    &.navlab {
+        background-color: $navlab-board-color;
+    }
+
+    &.remitly {
+        background-color: $remitly-board-color;
+    }
+
+    &.music {
+        background-color: $music-board-color;
+    }
 }
 
 .bulletin:first-child {
