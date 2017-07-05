@@ -1,4 +1,5 @@
 import * as React from "react";
+import { RouteComponentProps } from "react-router";
 
 import { BulletinProps } from "../screenComponent/bulletin";
 import BulletinBoard from "../screenComponent/bulletinBoard";
@@ -7,8 +8,10 @@ import Title from "../screenComponent/title";
 
 import "./style.scss";
 
+type Props = RouteComponentProps<any>;
+
 export default class MeScreen extends
-                     React.Component<{}, never> {
+                     React.Component<Props, never> {
 
     render() {
         return (

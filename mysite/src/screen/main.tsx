@@ -1,4 +1,5 @@
 import * as React from "react";
+import { RouteComponentProps } from "react-router";
 
 import HorizontalLayoutDetail from "../detailComponent/horizontalLayoutDetail";
 import VerticalLayoutDetail from "../detailComponent/verticalLayoutDetail";
@@ -24,10 +25,12 @@ interface MainScreenState {
     instaParams: Array<InstaParams>;
 }
 
+type Props = RouteComponentProps<any>;
+
 const instaNum = 3;
 
 export default class MainScreen extends
-                     React.Component<{}, MainScreenState> {
+                     React.Component<Props, MainScreenState> {
 
     state = {
         instaParams: [],

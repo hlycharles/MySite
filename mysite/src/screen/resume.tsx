@@ -1,11 +1,14 @@
 import * as React from "react";
+import { RouteComponentProps } from "react-router";
 
 import Navigator, { PANEL } from "../screenComponent/navigator";
 import Title from "../screenComponent/title";
 
 import "./style.scss";
 
-export default function ResumeScreen() {
+type Props = RouteComponentProps<any>;
+
+export default function ResumeScreen(props: Props) {
 
     const docPath = "../../asset/doc/resume.svg";
 
