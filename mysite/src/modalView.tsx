@@ -19,7 +19,9 @@ export default class ModalView extends
         return (
             <div className="modal-boundary">
                 <div className="modal-container">
-                    <div className="modal-button" onClick={this._handleClick} />
+                    <div className="modal-button" onClick={this._handleClick}>
+                        <img src="../asset/img/close_button.png" />
+                    </div>
                     <div className="modal-content">
                         {this.props.view}
                     </div>

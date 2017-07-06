@@ -20,21 +20,27 @@
         .modal-content {
             position: absolute;
             background-color: $transparent-background-color;
-            top: $close-button-side;
-            left: 0;
+            top: $close-button-side + $top-spacing + $base-spacing;
+            left: $side-spacing;
             bottom: 0;
-            right: 0;
+            right: $side-spacing;
             overflow: scroll;
         }
 
         .modal-button {
             position: absolute;
-            top: 0;
-            right: 0;
+            top: $top-spacing;
+            right: $side-spacing;
             width: $close-button-side;
             height: $close-button-side;
-            background-color: blue;
             cursor: pointer;
+
+            img {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
         }
     }
 }
