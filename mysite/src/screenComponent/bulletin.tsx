@@ -23,7 +23,10 @@ export default class Bulletin extends
     };
 
     render() {
-        const className = "bulletin ".concat(this.props.class);
+        let className = "bulletin ".concat(this.props.class);
+        if (this.props.detailedView || this.props.clickAction) {
+            className = className.concat(" " + "clickable");
+        }
         return (
             <div className={className} onClick={this._handleClick}>
                 {

@@ -35,6 +35,10 @@
         }
     }
 
+    &.clickable {
+        cursor: pointer;
+    }
+
     &.resume {
         background-color: $resume-board-color;
     }
