@@ -16,7 +16,7 @@ export default class ModalView extends
         return (
             <div className="detail-vertical">
                 <div className="detail-img">
-                    <img src="../../asset/img/canada.jpg" />
+                    <img src={this.props.img} />
                 </div>
                 <div className="detail-content">
                     <p className="content-wrapper">

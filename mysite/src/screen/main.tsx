@@ -2,7 +2,6 @@ import autobind from "autobind-decorator";
 import * as React from "react";
 import { RouteComponentProps } from "react-router";
 
-import HorizontalLayoutDetail from "../detailComponent/horizontalLayoutDetail";
 import VerticalLayoutDetail from "../detailComponent/verticalLayoutDetail";
 import { BulletinProps } from "../screenComponent/bulletin";
 import BulletinBoard from "../screenComponent/bulletinBoard";
@@ -113,7 +112,7 @@ export default class MainScreen extends
                     class: "insta",
                     cover: true,
                     detailedView: (
-                        <HorizontalLayoutDetail
+                        <VerticalLayoutDetail
                             img={param.url}
                             content={param.locationName || ""}
                         />

@@ -24,13 +24,14 @@
         padding-top: $img-content-spacing;
         text-align: center;
         border: none;
-        font-size: $content-size;
 
-        .content-wrapper {
+        p {
             display: inline-block;
             text-align: left;
-            color: white;
+            color: black;
             white-space: pre-wrap;
+            font-family: $content-font;
+            font-size: $content-size;
         }
     }
 }
