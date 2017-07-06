@@ -7,6 +7,7 @@ import { BulletinProps } from "../screenComponent/bulletin";
 import BulletinBoard from "../screenComponent/bulletinBoard";
 import Navigator from "../screenComponent/navigator";
 import Title from "../screenComponent/title";
+import { renderResume } from "./resume";
 
 import "./style.scss";
 
@@ -84,9 +85,7 @@ export default class MainScreen extends
         const resumeProp: BulletinProps = {
             class: "resume",
             cover: false,
-            detailedView: (
-                <VerticalLayoutDetail content="HI\nLONGER" />
-            ),
+            detailedView: this._renderResume(),
             headerText: "Resume",
             img: "../../asset/img/resume_icon.png",
         };
@@ -129,6 +128,11 @@ export default class MainScreen extends
                 bulletinProps={instaProps}
             />
         );
+    }
+
+    private _renderResume() {
+        const docPath = "../../asset/doc/resume.svg";
+        return renderResume(docPath);
     }
 
     @autobind

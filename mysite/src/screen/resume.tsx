@@ -8,6 +8,16 @@ import "./style.scss";
 
 type Props = RouteComponentProps<any>;
 
+export function renderResume(path: string) {
+    return (
+        <div className="resume-container">
+            <object type="image/svg+xml" data={path}>
+                Bad Browser
+            </object>
+        </div>
+    );
+}
+
 export default function ResumeScreen(props: Props) {
 
     const docPath = "../../asset/doc/resume.svg";
@@ -18,11 +28,7 @@ export default function ResumeScreen(props: Props) {
                 <Title titles={["Resume"]} />
                 <Navigator panel={PANEL.RESUME} />
             </div>
-            <div>
-                <object type="image/svg+xml" data={docPath}>
-                    Bad Browser
-                </object>
-            </div>
+            {renderResume(docPath)}
         </div>
     );
 }
