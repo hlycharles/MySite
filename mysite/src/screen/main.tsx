@@ -1,3 +1,4 @@
+import autobind from "autobind-decorator";
 import * as React from "react";
 import { RouteComponentProps } from "react-router";
 
@@ -92,6 +93,7 @@ export default class MainScreen extends
         };
         const siteGithubProp: BulletinProps = {
             class: "site-github",
+            clickAction: this._openGithub,
             cover: false,
             headerText: "Github",
             img: "../../asset/img/git_icon.png",
@@ -128,5 +130,11 @@ export default class MainScreen extends
                 bulletinProps={instaProps}
             />
         );
+    }
+
+    @autobind
+    private _openGithub() {
+        const url = "https://github.com/hlycharles";
+        window.open(url, "_blank");
     }
 }

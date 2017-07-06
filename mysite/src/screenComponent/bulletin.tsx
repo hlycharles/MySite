@@ -12,6 +12,7 @@ export interface BulletinProps {
     detailedView?: React.ReactNode;
     cover: boolean;
     headerText?: string;
+    clickAction?(): void;
 }
 
 export default class Bulletin extends
@@ -44,6 +45,9 @@ export default class Bulletin extends
 
     @autobind
     private _handleClick() {
+        if (this.props.clickAction) {
+            this.props.clickAction();
+        }
         if (this.props.detailedView) {
             this.context.loadModalView(this.props.detailedView);
         }

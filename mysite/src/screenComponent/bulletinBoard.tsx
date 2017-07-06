@@ -21,6 +21,7 @@ export default function BulletinBoard(props: BulletinBoardProps) {
                         return (
                             <Bulletin
                                 class={value.class}
+                                clickAction={value.clickAction}
                                 img={value.img}
                                 detailedView={value.detailedView}
                                 cover={value.cover}
