@@ -22,7 +22,7 @@
             background-color: $transparent-background-color;
             top: $close-button-side + $top-spacing + $base-spacing;
             left: $side-spacing;
-            bottom: 0;
+            bottom: $close-button-side + $top-spacing + $base-spacing;
             right: $side-spacing;
             overflow: scroll;
         }

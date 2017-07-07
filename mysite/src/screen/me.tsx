@@ -1,6 +1,7 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router";
 
+import TextDetail from "../detailComponent/textDetail";
 import { BulletinProps } from "../screenComponent/bulletin";
 import BulletinBoard from "../screenComponent/bulletinBoard";
 import Navigator, { PANEL } from "../screenComponent/navigator";
@@ -76,6 +77,12 @@ export default class MeScreen extends
         const cmuProps: BulletinProps = {
             class: "cmu",
             cover: false,
+            detailedView: (
+                <TextDetail
+                    content="../../asset/doc/me_cmu.txt"
+                    type="file"
+                />
+            ),
             headerText: "CMU",
             img: "../../asset/img/cmu_icon.png",
         };

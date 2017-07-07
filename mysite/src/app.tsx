@@ -31,13 +31,19 @@ export default class App extends
     }
 
     render() {
+        let className = "screen-container";
+        if (this.state.modalView) {
+            className = className.concat(" ").concat("noscroll");
+        }
         return (
-            <div className="screen-container">
-                <AppUi />
-                {
-                    this.state.modalView &&
-                    <ModalView view={this.state.modalView} />
-                }
+            <div className={className}>
+                <div className="main-container">
+                    <AppUi />
+                    {
+                        this.state.modalView &&
+                        <ModalView view={this.state.modalView} />
+                    }
+                </div>
             </div>
         );
     }

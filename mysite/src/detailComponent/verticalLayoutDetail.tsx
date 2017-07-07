@@ -9,7 +9,7 @@ interface VerticalLayoutDetailProps {
 
 type Props = VerticalLayoutDetailProps;
 
-export default class ModalView extends
+export default class VerticalLayoutDetail extends
                      React.Component<Props, never> {
 
     render() {

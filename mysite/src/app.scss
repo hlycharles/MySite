@@ -1,7 +1,22 @@
 @import "./variable";
 
 .screen-container {
-    margin: $top-spacing $side-spacing 0 $side-spacing;
-    position: relative;
-    height: auto;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+
+    .main-container {
+        position: absolute;
+        top: $top-spacing;
+        left: $side-spacing;
+        right: $side-spacing;
+        bottom: 0;
+    }
+
+    &.noscroll {
+        overflow: hidden;
+    }
 }

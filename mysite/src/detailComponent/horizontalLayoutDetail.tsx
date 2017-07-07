@@ -9,7 +9,7 @@ interface HorizontalLayoutDetailProps {
 
 type Props = HorizontalLayoutDetailProps;
 
-export default class ModalView extends
+export default class HorizontalLayoutDetail extends
                      React.Component<Props, never> {
 
     render() {
