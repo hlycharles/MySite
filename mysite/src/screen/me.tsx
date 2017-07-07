@@ -93,6 +93,12 @@ export default class MeScreen extends
         const majorProps: BulletinProps = {
             class: "major",
             cover: false,
+            detailedView: (
+                <TextDetail
+                    content="../../asset/doc/me_major.txt"
+                    type="file"
+                />
+            ),
             headerText: "ECE CS",
             img: "../../asset/img/cs_icon.png",
         };
@@ -113,6 +119,12 @@ export default class MeScreen extends
         const readingProps: BulletinProps = {
             class: "reading",
             cover: false,
+            detailedView: (
+                <TextDetail
+                    content="../../asset/doc/me_reading.txt"
+                    type="file"
+                />
+            ),
             headerText: "Reading",
             img: "../../asset/img/reading_icon.png",
         };
