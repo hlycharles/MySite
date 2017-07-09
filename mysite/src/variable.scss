@@ -1,4 +1,4 @@
-$base-spacing: 12px;
+$base-spacing: 8px;
 $top-spacing: ($base-spacing * 2);
 $side-spacing: ($base-spacing * 8);
 $board-spacing: ($base-spacing * 5);
@@ -6,7 +6,7 @@ $img-content-spacing: ($base-spacing * 2);
 
 $header-margin: ($base-spacing * 3);
 
-$bulletin-width: percentage(30/100);
+$bulletin-width: percentage(31/100);
 $bulletin-margin: (percentage(1) - ($bulletin-width * 3)) / 2;
 $bulletin-height: 200px;
 $thumbnail-dimension: 80%;
@@ -53,7 +53,13 @@ $content-font: "Avant Garde Gothic Book", Helvetica, sans-serif;
 // screen width <= 900px
 $bulletin-width-md: percentage(48/100);
 $bulletin-margin-md: percentage(1) - ($bulletin-width-md * 2);
+$base-spacing-md: 4px;
+$top-spacing-md: ($base-spacing * 2);
+$side-spacing-md: ($base-spacing * 2);
+$close-button-side-md: 40px;
+$lg-content-size-md: 20px;
 
-// screen width <= 650px
+// screen width <= 550px
 $bulletin-width-sm: percentage(100/100);
 $bulletin-margin-sm: 0;
+$page-title-size-sm: 36px;

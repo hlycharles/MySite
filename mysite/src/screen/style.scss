@@ -19,10 +19,8 @@
     }
 
     .panel-container {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        padding: 0;
+        padding-left: 0;
+        float: right;
 
         h4 {
             margin: 0;
@@ -34,4 +32,29 @@
     position: relative;
     overflow: hidden;
     height: auto;
+}
+
+@media (max-width: 700px) {
+    .header-container {
+        .title-container {
+            display: block;
+            clear: right;
+            float: none;
+        }
+
+        .panel-container {
+            display: block;
+            float: left;
+        }
+    }
+}
+
+@media (max-width: 550px) {
+    .header-container {
+        .title-container {
+            h2 {
+                font-size: $page-title-size-sm;
+            }
+        }
+    }
 }

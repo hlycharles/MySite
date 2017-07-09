@@ -37,6 +37,10 @@ export default class MainScreen extends
         instaParams: [],
     };
 
+    componentWillMount() {
+        alert(window.innerWidth);
+    }
+
     componentDidMount() {
         window.processInsta = (data: any) => {
             for (const d of data.data) {

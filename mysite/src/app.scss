@@ -20,3 +20,13 @@
         overflow: hidden;
     }
 }
+
+@media (max-width: 900px) {
+    .screen-container {
+        .main-container {
+            top: $top-spacing-md;
+            left: $side-spacing-md;
+            right: $side-spacing-md;
+        }
+    }
+}

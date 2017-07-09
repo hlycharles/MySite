@@ -79,9 +79,9 @@ export default class BulletinBoard extends
     private _calculateGroupSize() {
         if (window.innerWidth > 900) {
             this.setState({ groupSize: 3 });
-        } else if (window.innerWidth > 650 && window.innerWidth <= 900) {
+        } else if (window.innerWidth > 550 && window.innerWidth <= 900) {
             this.setState({ groupSize: 2 });
-        } else if (window.innerWidth <= 650) {
+        } else if (window.innerWidth <= 550) {
             this.setState({ groupSize: 1 });
         }
     }

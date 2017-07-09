@@ -44,3 +44,28 @@
         }
     }
 }
+
+@media (max-width: 900px) {
+    .modal-boundary {
+        .modal-container {
+            left: $base-spacing-md;
+            right: $base-spacing-md;
+            top: $base-spacing-md;
+            bottom: $base-spacing-md;
+
+            .modal-content {
+                top: $close-button-side-md + $top-spacing-md + $base-spacing-md;
+                left: $side-spacing-md;
+                bottom: $close-button-side-md + $top-spacing-md + $base-spacing-md;
+                right: $side-spacing-md;
+            }
+
+            .modal-button {
+                top: $top-spacing-md;
+                right: $side-spacing-md;
+                width: $close-button-side-md;
+                height: $close-button-side-md;
+            }
+        }
+    }
+}
