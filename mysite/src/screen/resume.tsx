@@ -8,11 +8,19 @@ import "./style.scss";
 
 type Props = RouteComponentProps<any>;
 
-export function renderResume(path: string) {
+export function renderResume(path: string, backPath?: string) {
+
+    function openInNewTab() {
+        const filePath = (backPath) ? backPath : path;
+        window.open(filePath);
+    }
+
     return (
         <div className="resume-container">
             <object type="image/svg+xml" data={path}>
-                Bad Browser
+                <button type="button" onClick={openInNewTab}>
+                    Click to view resume
+                </button>
             </object>
         </div>
     );
