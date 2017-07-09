@@ -4,6 +4,10 @@
     position: relative;
     width: 100%;
     height: auto;
-    margin-bottom: $board-spacing;
+    margin-bottom: $top-spacing;
     overflow: hidden;
+
+    &:last-child {
+        margin-bottom: $board-spacing;
+    }
 }

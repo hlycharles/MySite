@@ -10,28 +10,38 @@ interface BulletinBoardProps {
     bulletinProps: Array<BulletinProps>;
 }
 
+const groupSize = 3;
+
 export default function BulletinBoard(props: BulletinBoardProps) {
+
+    const containers: Array<React.ReactNode> = [];
+    for (let i = 0; i < props.bulletinProps.length; i += groupSize) {
+        const bulletins: Array<React.ReactNode> = [];
+        for (let j = i; j < i + groupSize && j < props.bulletinProps.length; j++) {
+            const bulletinProps = props.bulletinProps[j];
+            bulletins.push(
+                <Bulletin
+                    class={bulletinProps.class}
+                    clickAction={bulletinProps.clickAction}
+                    img={bulletinProps.img}
+                    detailedView={bulletinProps.detailedView}
+                    cover={bulletinProps.cover}
+                    headerText={bulletinProps.headerText}
+                    key={j}
+                />,
+            );
+        }
+        containers.push(
+            <div className="bulletin-container" key={i}>
+                {bulletins}
+            </div>,
+        );
+    }
 
     return (
         <div>
             {props.title && <Header title={props.title} theme="gray" />}
-            <div className="bulletin-container">
-                {props.bulletinProps.map(
-                    (value: BulletinProps, index: number) => {
-                        return (
-                            <Bulletin
-                                class={value.class}
-                                clickAction={value.clickAction}
-                                img={value.img}
-                                detailedView={value.detailedView}
-                                cover={value.cover}
-                                headerText={value.headerText}
-                                key={index}
-                            />
-                        );
-                    },
-                )}
-            </div>
+            {containers}
         </div>
     );
 }
