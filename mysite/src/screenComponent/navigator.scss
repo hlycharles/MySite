@@ -5,8 +5,15 @@
 
     li {
         display: inline;
-        margin-left: $base-spacing;
+        margin-left: $base-spacing * 2;
         font-family: $nav-font;
         cursor: pointer;
+
+        img {
+            width: 1.5em;
+            height: 1em;
+            object-fit: contain;
+            margin-bottom: 0;
+        }
     }
 }

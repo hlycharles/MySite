@@ -16,6 +16,7 @@ export enum PANEL {
 
 interface PanelOption {
     label: string;
+    img: boolean;
     action: () => void;
 }
 
@@ -33,11 +34,18 @@ export default class Navigator extends
     render() {
         const panels: Array<PanelOption> = [
             {
+                action: this._switchToMain,
+                img: true,
+                label: "../../asset/img/home_icon.png",
+            },
+            {
                 action: this._switchToMe,
+                img: false,
                 label: "Me",
             },
             {
                 action: this._switchToResume,
+                img: false,
                 label: "Resume",
             },
         ];
@@ -47,13 +55,22 @@ export default class Navigator extends
                     {
                         panels.map((option: PanelOption) => (
                             <li key={option.label} onClick={option.action}>
-                                {option.label}
+                                {
+                                    (option.img) ?
+                                    <img src={option.label} /> :
+                                    option.label
+                                }
                             </li>
                         ))
                     }
                 </ul>
             </div>
         );
+    }
+
+    @autobind
+    private _switchToMain() {
+        this.context.switchScreen(Screen.MAIN);
     }
 
     @autobind
