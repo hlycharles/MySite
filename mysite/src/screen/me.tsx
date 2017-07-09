@@ -109,6 +109,12 @@ export default class MeScreen extends
         const musicProps: BulletinProps = {
             class: "music",
             cover: false,
+            detailedView: (
+                <TextDetail
+                    content="../../asset/doc/me_music.txt"
+                    type="file"
+                />
+            ),
             headerText: "Music",
             img: "../../asset/img/music_icon.png",
         };
@@ -135,6 +141,12 @@ export default class MeScreen extends
         const arsenalProps: BulletinProps = {
             class: "arsenal",
             cover: false,
+            detailedView: (
+                <TextDetail
+                    content="../../asset/doc/me_arsenal.txt"
+                    type="file"
+                />
+            ),
             headerText: "Arsenal",
             img: "../../asset/img/arsenal_icon.png",
         };
@@ -145,6 +157,12 @@ export default class MeScreen extends
         const remitlyProps: BulletinProps = {
             class: "navlab",
             cover: false,
+            detailedView: (
+                <TextDetail
+                    content="../../asset/doc/me_navlab.txt"
+                    type="file"
+                />
+            ),
             headerText: "Navlab CMU",
             img: "../../asset/img/navlab_icon.png",
         };
@@ -155,6 +173,12 @@ export default class MeScreen extends
         const remitlyProps: BulletinProps = {
             class: "remitly",
             cover: false,
+            detailedView: (
+                <TextDetail
+                    content="../../asset/doc/me_remitly.txt"
+                    type="file"
+                />
+            ),
             headerText: "Remitly",
             img: "../../asset/img/remitly_icon.png",
         };
