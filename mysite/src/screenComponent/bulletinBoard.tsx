@@ -1,3 +1,4 @@
+import autobind from "autobind-decorator";
 import * as React from "react";
 
 import Bulletin, { BulletinProps } from "./bulletin";
@@ -10,38 +11,78 @@ interface BulletinBoardProps {
     bulletinProps: Array<BulletinProps>;
 }
 
-const groupSize = 3;
+interface BulletinBoardState {
+    groupSize: number;
+}
 
-export default function BulletinBoard(props: BulletinBoardProps) {
+export default class BulletinBoard extends
+                     React.Component<BulletinBoardProps, BulletinBoardState> {
 
-    const containers: Array<React.ReactNode> = [];
-    for (let i = 0; i < props.bulletinProps.length; i += groupSize) {
-        const bulletins: Array<React.ReactNode> = [];
-        for (let j = i; j < i + groupSize && j < props.bulletinProps.length; j++) {
-            const bulletinProps = props.bulletinProps[j];
-            bulletins.push(
-                <Bulletin
-                    class={bulletinProps.class}
-                    clickAction={bulletinProps.clickAction}
-                    img={bulletinProps.img}
-                    detailedView={bulletinProps.detailedView}
-                    cover={bulletinProps.cover}
-                    headerText={bulletinProps.headerText}
-                    key={j}
-                />,
-            );
-        }
-        containers.push(
-            <div className="bulletin-container" key={i}>
-                {bulletins}
-            </div>,
+    state = {
+        groupSize: 3,
+    };
+
+    componentWillMount() {
+        this._calculateGroupSize();
+    }
+
+    componentDidMount() {
+        window.addEventListener("resize", this._calculateGroupSize);
+    }
+
+    render() {
+        return (
+            <div>
+                {this.props.title && <Header title={this.props.title} theme="gray" />}
+                {this._renderBulletins()}
+            </div>
         );
     }
 
-    return (
-        <div>
-            {props.title && <Header title={props.title} theme="gray" />}
-            {containers}
-        </div>
-    );
+    private _renderBulletins(): Array<React.ReactNode> {
+        const containers: Array<React.ReactNode> = [];
+        for (
+            let i = 0;
+            i < this.props.bulletinProps.length;
+            i += this.state.groupSize
+        ) {
+            const bulletins: Array<React.ReactNode> = [];
+            for (
+                let j = i;
+                j < i + this.state.groupSize &&
+                j < this.props.bulletinProps.length;
+                j++
+            ) {
+                const bulletinProps = this.props.bulletinProps[j];
+                bulletins.push(
+                    <Bulletin
+                        class={bulletinProps.class}
+                        clickAction={bulletinProps.clickAction}
+                        img={bulletinProps.img}
+                        detailedView={bulletinProps.detailedView}
+                        cover={bulletinProps.cover}
+                        headerText={bulletinProps.headerText}
+                        key={j}
+                    />,
+                );
+            }
+            containers.push(
+                <div className="bulletin-container" key={i}>
+                    {bulletins}
+                </div>,
+            );
+        }
+        return containers;
+    }
+
+    @autobind
+    private _calculateGroupSize() {
+        if (window.innerWidth > 900) {
+            this.setState({ groupSize: 3 });
+        } else if (window.innerWidth > 650 && window.innerWidth <= 900) {
+            this.setState({ groupSize: 2 });
+        } else if (window.innerWidth <= 650) {
+            this.setState({ groupSize: 1 });
+        }
+    }
 }

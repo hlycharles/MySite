@@ -83,3 +83,17 @@
 .bulletin:first-child {
     margin-left: 0;
 }
+
+@media (max-width: 900px) {
+    .bulletin {
+        width: $bulletin-width-md;
+        margin-left: $bulletin-margin-md;
+    }
+}
+
+@media (max-width: 650px) {
+    .bulletin {
+        width: $bulletin-width-sm;
+        margin-left: $bulletin-margin-sm;
+    }
+}

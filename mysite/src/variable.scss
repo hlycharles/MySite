@@ -49,3 +49,11 @@ $main-title-font: "Avant Garde Gothic Book", Helvetica, sans-serif;
 $category-title-font: "Helvetica Neue", Helvetica, sans-serif;
 $nav-font: "Avant Garde Gothic Book", Helvetica, sans-serif;
 $content-font: "Avant Garde Gothic Book", Helvetica, sans-serif;
+
+// screen width <= 900px
+$bulletin-width-md: percentage(48/100);
+$bulletin-margin-md: percentage(1) - ($bulletin-width-md * 2);
+
+// screen width <= 650px
+$bulletin-width-sm: percentage(100/100);
+$bulletin-margin-sm: 0;
