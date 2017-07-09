@@ -117,7 +117,10 @@ export default class MainScreen extends
                     detailedView: (
                         <VerticalLayoutDetail
                             img={param.url}
-                            content={param.locationName || ""}
+                            content={
+                                param.locationName ||
+                                "Location Not Provided"
+                            }
                         />
                     ),
                     headerText: param.locationName,
