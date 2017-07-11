@@ -1,7 +1,8 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router";
 
-import Navigator, { PANEL } from "../screenComponent/navigator";
+import { Screen } from "../appUi";
+import Navigator from "../screenComponent/navigator";
 import Title from "../screenComponent/title";
 import { ASSET_PATH } from "./data";
 
@@ -35,7 +36,7 @@ export default function ResumeScreen(props: Props) {
         <div>
             <div className="header-container">
                 <Title titles={["Resume"]} />
-                <Navigator panel={PANEL.RESUME} />
+                <Navigator screen={Screen.RESUME} />
             </div>
             {renderResume(docPath)}
         </div>

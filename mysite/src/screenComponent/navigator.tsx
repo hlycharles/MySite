@@ -7,22 +7,15 @@ import { ASSET_PATH } from "./data";
 
 import "./navigator.scss";
 
-export enum PANEL {
-    ME,
-    BLOG,
-    RESUME,
-    PROJECT,
-    CONTACT,
-}
-
 interface PanelOption {
     label: string;
     img: boolean;
+    screen: Screen;
     action: () => void;
 }
 
 interface NavigatorProps {
-    panel: PANEL | null;
+    screen: Screen;
 }
 
 export default class Navigator extends
@@ -38,16 +31,19 @@ export default class Navigator extends
                 action: this._switchToMain,
                 img: true,
                 label: ASSET_PATH.concat("img/home_icon.png"),
+                screen: Screen.MAIN,
             },
             {
                 action: this._switchToMe,
                 img: false,
                 label: "Me",
+                screen: Screen.ME,
             },
             {
                 action: this._switchToResume,
                 img: false,
                 label: "Resume",
+                screen: Screen.RESUME,
             },
         ];
         return (
@@ -55,7 +51,14 @@ export default class Navigator extends
                 <ul className="nav">
                     {
                         panels.map((option: PanelOption) => (
-                            <li key={option.label} onClick={option.action}>
+                            <li
+                                key={option.label}
+                                onClick={
+                                    this._handleClick(
+                                        option.action,
+                                        option.screen,
+                                    )}
+                            >
                                 {
                                     (option.img) ?
                                     <img src={option.label} /> :
@@ -67,6 +70,16 @@ export default class Navigator extends
                 </ul>
             </div>
         );
+    }
+
+    @autobind
+    private _handleClick(action: () => void, screen: Screen) {
+        return () => {
+            if (screen === this.props.screen) {
+                return;
+            }
+            action();
+        };
     }
 
     @autobind

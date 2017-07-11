@@ -2,6 +2,7 @@ import autobind from "autobind-decorator";
 import * as React from "react";
 import { RouteComponentProps } from "react-router";
 
+import { Screen } from "../appUi";
 import VerticalLayoutDetail from "../detailComponent/verticalLayoutDetail";
 import { BulletinProps } from "../screenComponent/bulletin";
 import BulletinBoard from "../screenComponent/bulletinBoard";
@@ -62,7 +63,7 @@ export default class MainScreen extends
             <div>
                 <div className="header-container">
                     <Title titles={["Luyao Hou"]} />
-                    <Navigator panel={null} />
+                    <Navigator screen={Screen.MAIN} />
                 </div>
                 <div className="content-container">
                     {this._renderPinBoard()}

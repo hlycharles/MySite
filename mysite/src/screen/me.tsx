@@ -1,10 +1,11 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router";
 
+import { Screen } from "../appUi";
 import TextDetail from "../detailComponent/textDetail";
 import { BulletinProps } from "../screenComponent/bulletin";
 import BulletinBoard from "../screenComponent/bulletinBoard";
-import Navigator, { PANEL } from "../screenComponent/navigator";
+import Navigator from "../screenComponent/navigator";
 import Title from "../screenComponent/title";
 import { ASSET_PATH } from "./data";
 
@@ -20,7 +21,7 @@ export default class MeScreen extends
             <div>
                 <div className="header-container">
                     <Title titles={["Me"]} />
-                    <Navigator panel={PANEL.ME} />
+                    <Navigator screen={Screen.ME} />
                 </div>
                 <div className="content-container">
                     {this._renderEducation()}
