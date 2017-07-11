@@ -6,6 +6,7 @@ import { BulletinProps } from "../screenComponent/bulletin";
 import BulletinBoard from "../screenComponent/bulletinBoard";
 import Navigator, { PANEL } from "../screenComponent/navigator";
 import Title from "../screenComponent/title";
+import { ASSET_PATH } from "./data";
 
 import "./style.scss";
 
@@ -79,12 +80,12 @@ export default class MeScreen extends
             cover: false,
             detailedView: (
                 <TextDetail
-                    content="../../asset/doc/me_cmu.txt"
+                    content={ASSET_PATH.concat("doc/me_cmu.txt")}
                     type="file"
                 />
             ),
             headerText: "CMU",
-            img: "../../asset/img/cmu_icon.png",
+            img: ASSET_PATH.concat("img/cmu_icon.png"),
         };
         return cmuProps;
     }
@@ -95,12 +96,12 @@ export default class MeScreen extends
             cover: false,
             detailedView: (
                 <TextDetail
-                    content="../../asset/doc/me_major.txt"
+                    content={ASSET_PATH.concat("doc/me_major.txt")}
                     type="file"
                 />
             ),
             headerText: "ECE CS",
-            img: "../../asset/img/cs_icon.png",
+            img: ASSET_PATH.concat("img/cs_icon.png"),
         };
         return majorProps;
     }
@@ -111,12 +112,12 @@ export default class MeScreen extends
             cover: false,
             detailedView: (
                 <TextDetail
-                    content="../../asset/doc/me_music.txt"
+                    content={ASSET_PATH.concat("doc/me_music.txt")}
                     type="file"
                 />
             ),
             headerText: "Music",
-            img: "../../asset/img/music_icon.png",
+            img: ASSET_PATH.concat("img/music_icon.png"),
         };
         return musicProps;
     }
@@ -127,12 +128,12 @@ export default class MeScreen extends
             cover: false,
             detailedView: (
                 <TextDetail
-                    content="../../asset/doc/me_reading.txt"
+                    content={ASSET_PATH.concat("doc/me_reading.txt")}
                     type="file"
                 />
             ),
             headerText: "Reading",
-            img: "../../asset/img/reading_icon.png",
+            img: ASSET_PATH.concat("img/reading_icon.png"),
         };
         return readingProps;
     }
@@ -143,12 +144,12 @@ export default class MeScreen extends
             cover: false,
             detailedView: (
                 <TextDetail
-                    content="../../asset/doc/me_arsenal.txt"
+                    content={ASSET_PATH.concat("doc/me_arsenal.txt")}
                     type="file"
                 />
             ),
             headerText: "Arsenal",
-            img: "../../asset/img/arsenal_icon.png",
+            img: ASSET_PATH.concat("img/arsenal_icon.png"),
         };
         return arsenalProps;
     }
@@ -159,12 +160,12 @@ export default class MeScreen extends
             cover: false,
             detailedView: (
                 <TextDetail
-                    content="../../asset/doc/me_navlab.txt"
+                    content={ASSET_PATH.concat("doc/me_navlab.txt")}
                     type="file"
                 />
             ),
             headerText: "Navlab CMU",
-            img: "../../asset/img/navlab_icon.png",
+            img: ASSET_PATH.concat("img/navlab_icon.png"),
         };
         return remitlyProps;
     }
@@ -175,12 +176,12 @@ export default class MeScreen extends
             cover: false,
             detailedView: (
                 <TextDetail
-                    content="../../asset/doc/me_remitly.txt"
+                    content={ASSET_PATH.concat("doc/me_remitly.txt")}
                     type="file"
                 />
             ),
             headerText: "Remitly",
-            img: "../../asset/img/remitly_icon.png",
+            img: ASSET_PATH.concat("img/remitly_icon.png"),
         };
         return remitlyProps;
     }

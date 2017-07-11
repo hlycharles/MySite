@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import * as React from "react";
 
 import { Screen } from "../appUi";
+import { ASSET_PATH } from "./data";
 
 import "./navigator.scss";
 
@@ -36,7 +37,7 @@ export default class Navigator extends
             {
                 action: this._switchToMain,
                 img: true,
-                label: "../../asset/img/home_icon.png",
+                label: ASSET_PATH.concat("img/home_icon.png"),
             },
             {
                 action: this._switchToMe,

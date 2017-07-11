@@ -3,6 +3,7 @@ import { RouteComponentProps } from "react-router";
 
 import Navigator, { PANEL } from "../screenComponent/navigator";
 import Title from "../screenComponent/title";
+import { ASSET_PATH } from "./data";
 
 import "./style.scss";
 
@@ -28,7 +29,7 @@ export function renderResume(path: string, backPath?: string) {
 
 export default function ResumeScreen(props: Props) {
 
-    const docPath = "../../asset/doc/resume.svg";
+    const docPath = ASSET_PATH.concat("doc/resume.svg");
 
     return (
         <div>

@@ -7,6 +7,7 @@ import { BulletinProps } from "../screenComponent/bulletin";
 import BulletinBoard from "../screenComponent/bulletinBoard";
 import Navigator from "../screenComponent/navigator";
 import Title from "../screenComponent/title";
+import { ASSET_PATH } from "./data";
 import { renderResume } from "./resume";
 
 import "./style.scss";
@@ -33,7 +34,7 @@ const instaNum = 3;
 export default class MainScreen extends
                      React.Component<Props, MainScreenState> {
 
-    state = {
+    state: MainScreenState = {
         instaParams: [],
     };
 
@@ -87,14 +88,14 @@ export default class MainScreen extends
             cover: false,
             detailedView: this._renderResume(),
             headerText: "Resume",
-            img: "../../asset/img/resume_icon.png",
+            img: ASSET_PATH.concat("img/resume_icon.png"),
         };
         const siteGithubProp: BulletinProps = {
             class: "site-github",
             clickAction: this._openGithub,
             cover: false,
             headerText: "Github",
-            img: "../../asset/img/git_icon.png",
+            img: ASSET_PATH.concat("img/git_icon.png"),
         };
         return (
             <BulletinBoard
@@ -134,7 +135,7 @@ export default class MainScreen extends
     }
 
     private _renderResume() {
-        const docPath = "../../asset/doc/resume.svg";
+        const docPath = ASSET_PATH.concat("doc/resume.svg");
         return renderResume(docPath);
     }
 

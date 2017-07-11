@@ -1,6 +1,6 @@
 import autobind from "autobind-decorator";
 import * as H from "history";
-import { createBrowserHistory } from "history";
+import { createHashHistory } from "history";
 import PropTypes from "prop-types";
 import * as React from "react";
 import { Route, Router, Switch } from "react-router";
@@ -35,10 +35,9 @@ export default class AppUi extends
     }
 
     componentWillMount() {
-        this.history = createBrowserHistory({
+        this.history = createHashHistory({
             basename: "",
-            forceRefresh: false,
-            keyLength: 6,
+            hashType: "noslash",
         });
     }
 
