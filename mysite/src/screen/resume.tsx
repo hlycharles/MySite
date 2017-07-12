@@ -6,7 +6,7 @@ import Navigator from "../screenComponent/navigator";
 import Title from "../screenComponent/title";
 import { ASSET_PATH } from "./data";
 
-import "./style.scss";
+import "./resume.scss";
 
 type Props = RouteComponentProps<any>;
 

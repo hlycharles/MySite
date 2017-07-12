@@ -1,32 +1,16 @@
 @import "./variable";
 
 .screen-container {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-
-    .main-container {
-        position: absolute;
-        top: $top-spacing;
-        left: $side-spacing;
-        right: $side-spacing;
-        bottom: 0;
-    }
-
-    &.noscroll {
-        overflow: hidden;
-    }
+    margin-top: $top-spacing;
+    margin-left: $side-spacing;
+    margin-right: $side-spacing;
+    margin-bottom: 0;
 }
 
 @media (max-width: 900px) {
     .screen-container {
-        .main-container {
-            top: $top-spacing-md;
-            left: $side-spacing-md;
-            right: $side-spacing-md;
-        }
+        margin-top: $top-spacing-md;
+        margin-left: $side-spacing-md;
+        margin-right: $side-spacing-md;
     }
 }

@@ -1,4 +1,5 @@
 import autobind from "autobind-decorator";
+import $ from "jquery";
 import PropTypes from "prop-types";
 import * as React from "react";
 
@@ -31,19 +32,13 @@ export default class App extends
     }
 
     render() {
-        let className = "screen-container";
-        if (this.state.modalView) {
-            className = className.concat(" ").concat("noscroll");
-        }
         return (
-            <div className={className}>
-                <div className="main-container">
-                    <AppUi />
-                    {
-                        this.state.modalView &&
-                        <ModalView view={this.state.modalView} />
-                    }
-                </div>
+            <div className="screen-container">
+                <AppUi />
+                {
+                    this.state.modalView &&
+                    <ModalView view={this.state.modalView} />
+                }
             </div>
         );
     }
@@ -51,10 +46,16 @@ export default class App extends
     @autobind
     private _loadModalView(modalView: React.ReactNode) {
         this.setState({ modalView });
+        $("body").css("overflow", "hidden");
+        $("body").bind("touchmove", (event) => {
+            event.preventDefault();
+        });
     }
 
     @autobind
     private _unloadModalView() {
         this.setState({ modalView: null });
+        $("body").css("overflow", "scroll");
+        $("body").unbind("touchmove");
     }
 }
