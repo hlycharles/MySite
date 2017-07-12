@@ -14,6 +14,7 @@
     "build": "webpack",
     "start": "webpack-dev-server",
     "dev": "./build.sh",
+    "prod": "./prod.sh",
     "lint-ts": "tslint -c tslint.json --project tsconfig.json",
     "lint-style": "stylelint 'src/**/*.scss'",
     "test": "test"

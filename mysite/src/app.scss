@@ -5,6 +5,9 @@
     margin-left: $side-spacing;
     margin-right: $side-spacing;
     margin-bottom: 0;
+
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 @media (max-width: 900px) {
