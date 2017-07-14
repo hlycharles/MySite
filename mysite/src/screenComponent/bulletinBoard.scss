@@ -11,3 +11,13 @@
         margin-bottom: $board-spacing;
     }
 }
+
+@media (max-width: 900px) {
+    .bulletin-container {
+        margin-bottom: $top-spacing-md;
+
+        &:last-child {
+            margin-bottom: $board-spacing-md;
+        }
+    }
+}

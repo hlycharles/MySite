@@ -1,5 +1,5 @@
 $base-spacing: 12px;
-$top-spacing: ($base-spacing * 2);
+$top-spacing: ($base-spacing * 3);
 $side-spacing: ($base-spacing * 5);
 $board-spacing: ($base-spacing * 5);
 $img-content-spacing: ($base-spacing * 2);
@@ -54,8 +54,10 @@ $content-font: "Avant Garde Gothic Book", Helvetica, sans-serif;
 $bulletin-width-md: percentage(48/100);
 $bulletin-margin-md: percentage(1) - ($bulletin-width-md * 2);
 $base-spacing-md: 4px;
-$top-spacing-md: ($base-spacing * 2);
-$side-spacing-md: ($base-spacing * 2);
+$top-spacing-md: ($base-spacing-md * 3);
+$side-spacing-md: ($base-spacing-md * 2);
+$header-margin-md: ($base-spacing-md * 3);
+$board-spacing-md: ($base-spacing-md * 8);
 $close-button-side-md: 40px;
 $lg-content-size-md: 20px;
 

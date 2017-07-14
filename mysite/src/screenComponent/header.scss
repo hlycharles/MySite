@@ -1,7 +1,6 @@
 @import "../variable";
 
 .header-stripe-container {
-
     h5 {
         margin: 0 0 $top-spacing 0;
         display: inline-block;
@@ -18,6 +17,14 @@
             color: white;
             border: white $standard-border-width solid;
             background-color: $light-header-background-color;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .header-stripe-container {
+        h5 {
+            margin-bottom: $top-spacing-md;
         }
     }
 }

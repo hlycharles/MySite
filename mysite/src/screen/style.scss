@@ -19,8 +19,10 @@
     }
 
     .panel-container {
+        position: absolute;
         padding-left: 0;
-        float: right;
+        right: 0;
+        bottom: 0;
 
         h4 {
             margin: 0;
@@ -36,6 +38,8 @@
 
 @media (max-width: 700px) {
     .header-container {
+        margin-bottom: $header-margin-md;
+
         .title-container {
             display: block;
             clear: right;
@@ -43,6 +47,7 @@
         }
 
         .panel-container {
+            position: relative;
             display: block;
             float: left;
         }
