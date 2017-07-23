@@ -8,10 +8,6 @@
     margin-left: $bulletin-margin;
     border-radius: $standard-border-radius;
 
-    &:hover {
-        box-shadow: 0 0 $base-spacing 0 $shadow-color;
-    }
-
     >.bulletin-header {
         position: relative;
         left: $base-spacing;
@@ -112,10 +108,6 @@
     .bulletin {
         width: $bulletin-width-md;
         margin-left: $bulletin-margin-md;
-
-        &:hover {
-        box-shadow: 0 0 $base-spacing-md 0 $shadow-color;
-    }
     }
 }
 
@@ -123,5 +115,21 @@
     .bulletin {
         width: $bulletin-width-sm;
         margin-left: $bulletin-margin-sm;
+    }
+}
+
+@media (pointer: fine) {
+    .bulletin {
+        &:hover {
+            box-shadow: 0 0 $base-spacing 0 $shadow-color;
+        }
+    }
+
+    @media (max-width: 900px) {
+        .bulletin {
+            &:hover {
+                box-shadow: 0 0 $base-spacing-md 0 $shadow-color;
+            }
+        }
     }
 }
