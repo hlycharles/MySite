@@ -78,6 +78,26 @@
     &.music {
         background-color: $music-board-color;
     }
+
+    &.personal-website {
+        background-color: $personal-website-board-color;
+    }
+
+    &.online-course {
+        background-color: $online-course-board-color;
+    }
+
+    &.ios-reminder {
+        background-color: $ios-reminder-board-color;
+    }
+
+    &.cal-revision {
+        background-color: $cal-revision-board-color;
+    }
+
+    &.python-tp {
+        background-color: $python-tp-board-color;
+    }
 }
 
 .bulletin:first-child {

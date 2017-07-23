@@ -40,6 +40,12 @@ export default class Navigator extends
                 screen: Screen.ME,
             },
             {
+                action: this._switchToProject,
+                img: false,
+                label: "Project",
+                screen: Screen.PROJECT,
+            },
+            {
                 action: this._switchToResume,
                 img: false,
                 label: "Resume",
@@ -90,6 +96,11 @@ export default class Navigator extends
     @autobind
     private _switchToMe() {
         this.context.switchScreen(Screen.ME);
+    }
+
+    @autobind
+    private _switchToProject() {
+        this.context.switchScreen(Screen.PROJECT);
     }
 
     @autobind

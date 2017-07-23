@@ -3,6 +3,7 @@ import * as React from "react";
 import { RouteComponentProps } from "react-router";
 
 import { Screen } from "../appUi";
+import TextDetail from "../detailComponent/textDetail";
 import VerticalLayoutDetail from "../detailComponent/verticalLayoutDetail";
 import { BulletinProps } from "../screenComponent/bulletin";
 import BulletinBoard from "../screenComponent/bulletinBoard";
@@ -68,6 +69,7 @@ export default class MainScreen extends
                 <div className="content-container">
                     {this._renderPinBoard()}
                     {this._renderInstaBoard()}
+                    {this._renderProjectBoard()}
                 </div>
             </div>
         );
@@ -131,6 +133,55 @@ export default class MainScreen extends
             <BulletinBoard
                 title="INSTAGRAM"
                 bulletinProps={instaProps}
+            />
+        );
+    }
+
+    private _renderProjectBoard(): React.ReactNode {
+        const personalWebsiteProps: BulletinProps = {
+            class: "personal-website",
+            cover: false,
+            detailedView: (
+                <TextDetail
+                    content={ASSET_PATH.concat("doc/project_personal_website.txt")}
+                    type="file"
+                />
+            ),
+            headerText: "Personal Website",
+            img: ASSET_PATH.concat("img/personal_website_icon.png"),
+        };
+        const reminderAppProps: BulletinProps = {
+            class: "ios-reminder",
+            cover: false,
+            detailedView: (
+                <TextDetail
+                    content={ASSET_PATH.concat("doc/project_ios_reminder.txt")}
+                    type="file"
+                />
+            ),
+            headerText: "iOS Reminder App",
+            img: ASSET_PATH.concat("img/ios_reminder_icon.png"),
+        };
+        const onlineCourseProps: BulletinProps = {
+            class: "online-course",
+            cover: false,
+            detailedView: (
+                <TextDetail
+                    content={ASSET_PATH.concat("doc/project_online_course.txt")}
+                    type="file"
+                />
+            ),
+            headerText: "Online CS Tutorial",
+            img: ASSET_PATH.concat("img/online_course_icon.png"),
+        };
+        return (
+            <BulletinBoard
+                title="PINNED PROJECTS"
+                bulletinProps={[
+                    personalWebsiteProps,
+                    reminderAppProps,
+                    onlineCourseProps,
+                ]}
             />
         );
     }

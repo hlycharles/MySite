@@ -7,11 +7,13 @@ import { Route, Router, Switch } from "react-router";
 
 import MainScreen from "./screen/main";
 import MeScreen from "./screen/me";
+import ProjectScreen from "./screen/project";
 import ResumeScreen from "./screen/resume";
 
 export enum Screen {
     MAIN,
     ME,
+    PROJECT,
     RESUME,
 }
 
@@ -54,6 +56,7 @@ export default class AppUi extends
                 <Switch>
                     <Route exact path="/" component={MainScreen} />
                     <Route exact path="/me" component={MeScreen} />
+                    <Route exact path="/project" component={ProjectScreen} />
                     <Route exact path="/resume" component={ResumeScreen} />
                 </Switch>
             </Router>
@@ -69,6 +72,9 @@ export default class AppUi extends
                 break;
             case Screen.ME:
                 url = "/me";
+                break;
+            case Screen.PROJECT:
+                url = "/project";
                 break;
             case Screen.RESUME:
                 url = "/resume";
