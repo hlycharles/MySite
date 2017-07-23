@@ -3,6 +3,7 @@ var HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
     template: __dirname + "/src/index.html",
     filename: 'index.html',
     inject: 'body',
+    hash: true,
 });
 
 module.exports = {

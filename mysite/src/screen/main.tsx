@@ -42,16 +42,15 @@ export default class MainScreen extends
 
     componentDidMount() {
         window.processInsta = (data: any) => {
+            const instaParams = this.state.instaParams;
             for (const d of data.data) {
                 const imgUrl: string = d.images.standard_resolution.url;
-                const instaParams: Array<InstaParams> = this.state.instaParams;
                 instaParams.push({
                     locationName: d.location.name,
                     url: imgUrl,
                 });
             }
-            // update rendering
-            this.forceUpdate();
+            this.setState({ instaParams });
         };
         const srcElement = document.createElement("script");
         const url = this._generateUrl();

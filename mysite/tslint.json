@@ -12,9 +12,6 @@
         "member-access": [
             false
         ],
-        "no-unused-variable": [
-            true
-        ],
         "array-type": [
             true,
             "generic"
