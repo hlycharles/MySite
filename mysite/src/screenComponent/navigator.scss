@@ -2,11 +2,24 @@
 
 .panel-container {
     padding-bottom: 0;
+    position: absolute;
+    padding-left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: right;
+
+    h4 {
+        margin: 0;
+    }
 
     .nav {
         list-style-type: none;
         padding: 0;
-        margin-bottom: 0;
+        margin: 0;
+
+        &:not(:last-child) {
+            margin-bottom: $base-spacing;
+        }
 
         li {
             display: inline;
@@ -29,6 +42,14 @@
 
 @media (max-width: 700px) {
     .panel-container {
+        position: relative;
+        display: block;
+        float: left;
+        text-align: left;
         padding-bottom: $top-spacing-md;
+
+        &:not(:last-child) {
+            margin-bottom: $base-spacing-md;
+        }
     }
 }

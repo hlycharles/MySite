@@ -10,7 +10,7 @@ import "./navigator.scss";
 interface PanelOption {
     label: string;
     img: boolean;
-    screen: Screen;
+    screen?: Screen;
     action: () => void;
 }
 
@@ -25,63 +25,94 @@ export default class Navigator extends
         switchScreen: PropTypes.func.isRequired,
     };
 
-    render() {
-        const panels: Array<PanelOption> = [
+    private mediaPanel: Array<PanelOption>;
+    private screenPanel: Array<PanelOption>;
+
+    componentWillMount() {
+        this.mediaPanel = [
             {
-                action: this._switchToMain,
+                action: this._gotoUrl("https://www.facebook.com/hlycharles"),
+                img: true,
+                label: ASSET_PATH.concat("img/facebook_icon.png"),
+            },
+            {
+                action: this._gotoUrl("https://www.instagram.com/hlycharles/"),
+                img: true,
+                label: ASSET_PATH.concat("img/insta_icon.png"),
+            },
+            {
+                action: this._gotoUrl("https://github.com/hlycharles"),
+                img: true,
+                label: ASSET_PATH.concat("img/github_icon.png"),
+            },
+        ];
+
+        this.screenPanel = [
+            {
+                action: this._switchToScreen(Screen.MAIN),
                 img: true,
                 label: ASSET_PATH.concat("img/home_icon.png"),
                 screen: Screen.MAIN,
             },
             {
-                action: this._switchToMe,
+                action: this._switchToScreen(Screen.ME),
                 img: false,
                 label: "Me",
                 screen: Screen.ME,
             },
             {
-                action: this._switchToProject,
+                action: this._switchToScreen(Screen.PROJECT),
                 img: false,
                 label: "Project",
                 screen: Screen.PROJECT,
             },
             {
-                action: this._switchToResume,
+                action: this._switchToScreen(Screen.RESUME),
                 img: false,
                 label: "Resume",
                 screen: Screen.RESUME,
             },
         ];
+    }
+
+    render() {
         return (
             <div className="panel-container">
-                <ul className="nav">
-                    {
-                        panels.map((option: PanelOption) => (
-                            <li
-                                key={option.label}
-                                onClick={
-                                    this._handleClick(
-                                        option.action,
-                                        option.screen,
-                                    )}
-                            >
-                                {
-                                    (option.img) ?
-                                    <img src={option.label} /> :
-                                    option.label
-                                }
-                            </li>
-                        ))
-                    }
-                </ul>
+                {this._renderPanel(this.mediaPanel)}
+                {this._renderPanel(this.screenPanel)}
             </div>
         );
     }
 
+    private _renderPanel(panelOptions: Array<PanelOption>) {
+        return (
+            <ul className="nav">
+                {
+                    panelOptions.map((option: PanelOption) => (
+                        <li
+                            key={option.label}
+                            onClick={
+                                this._handleClick(
+                                    option.action,
+                                    option.screen,
+                                )}
+                        >
+                            {
+                                (option.img) ?
+                                <img src={option.label} /> :
+                                option.label
+                            }
+                        </li>
+                    ))
+                }
+            </ul>
+        );
+    }
+
     @autobind
-    private _handleClick(action: () => void, screen: Screen) {
+    private _handleClick(action: () => void, screen?: Screen) {
         return () => {
-            if (screen === this.props.screen) {
+            if (screen && screen === this.props.screen) {
                 return;
             }
             action();
@@ -89,22 +120,12 @@ export default class Navigator extends
     }
 
     @autobind
-    private _switchToMain() {
-        this.context.switchScreen(Screen.MAIN);
+    private _switchToScreen(screen: Screen) {
+        return () => this.context.switchScreen(screen);
     }
 
     @autobind
-    private _switchToMe() {
-        this.context.switchScreen(Screen.ME);
-    }
-
-    @autobind
-    private _switchToProject() {
-        this.context.switchScreen(Screen.PROJECT);
-    }
-
-    @autobind
-    private _switchToResume() {
-        this.context.switchScreen(Screen.RESUME);
+    private _gotoUrl(url: string) {
+        return () => window.open(url, "_blank");
     }
 }

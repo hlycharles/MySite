@@ -17,17 +17,6 @@
             margin: 0;
         }
     }
-
-    .panel-container {
-        position: absolute;
-        padding-left: 0;
-        right: 0;
-        bottom: 0;
-
-        h4 {
-            margin: 0;
-        }
-    }
 }
 
 .content-container {
@@ -43,12 +32,7 @@
             display: block;
             clear: right;
             float: none;
-        }
-
-        .panel-container {
-            position: relative;
-            display: block;
-            float: left;
+            margin-bottom: $top-spacing-md;
         }
     }
 }
