@@ -1,14 +1,6 @@
 import * as React from "react";
-import { RouteComponentProps } from "react-router";
 
-import { Screen } from "../appUi";
-import Navigator from "../screenComponent/navigator";
-import Title from "../screenComponent/title";
 import { ASSET_PATH } from "./data";
-
-import "./resume.scss";
-
-type Props = RouteComponentProps<any>;
 
 export function renderResume(path: string, backPath?: string) {
 
@@ -28,17 +20,8 @@ export function renderResume(path: string, backPath?: string) {
     );
 }
 
-export default function ResumeScreen(props: Props) {
+export default function ResumeScreen() {
 
     const docPath = ASSET_PATH.concat("doc/resume.svg");
-
-    return (
-        <div>
-            <div className="header-container">
-                <Title titles={["Resume"]} />
-                <Navigator screen={Screen.RESUME} />
-            </div>
-            {renderResume(docPath)}
-        </div>
-    );
+    return renderResume(docPath);
 }

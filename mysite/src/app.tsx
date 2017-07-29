@@ -3,7 +3,7 @@ import $ from "jquery";
 import PropTypes from "prop-types";
 import * as React from "react";
 
-import AppUi from "./appUi";
+import AppUiBase from "./appUiBase";
 import ModalView from "./modalView";
 
 import "./app.scss";
@@ -34,7 +34,7 @@ export default class App extends
     render() {
         return (
             <div className="screen-container">
-                <AppUi />
+                <AppUiBase />
                 {
                     this.state.modalView &&
                     <ModalView view={this.state.modalView} />

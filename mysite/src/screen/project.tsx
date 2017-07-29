@@ -1,34 +1,20 @@
 import * as React from "react";
-import { RouteComponentProps } from "react-router";
 
-import { Screen } from "../appUi";
 import TextDetail from "../detailComponent/textDetail";
 import { BulletinProps } from "../screenComponent/bulletin";
 import BulletinBoard from "../screenComponent/bulletinBoard";
-import Navigator from "../screenComponent/navigator";
-import Title from "../screenComponent/title";
 import { ASSET_PATH } from "./data";
 
-import "./style.scss";
-
-type Props = RouteComponentProps<any>;
-
 export default class ProjectScreen extends
-                     React.Component<Props, never> {
+                     React.Component<{}, never> {
 
     render() {
         return (
-            <div>
-                <div className="header-container">
-                    <Title titles={["Projects"]} />
-                    <Navigator screen={Screen.PROJECT} />
-                </div>
-                <div className="content-container">
-                    {this._renderOrganization()}
-                    {this._renderWeb()}
-                    {this._renderNative()}
-                    {this._renderDesktop()}
-                </div>
+            <div className="content-container">
+                {this._renderOrganization()}
+                {this._renderWeb()}
+                {this._renderNative()}
+                {this._renderDesktop()}
             </div>
         );
     }

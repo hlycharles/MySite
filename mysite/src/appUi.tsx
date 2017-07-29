@@ -1,87 +1,52 @@
-import autobind from "autobind-decorator";
-import * as H from "history";
-import { createBrowserHistory, createHashHistory } from "history";
-import PropTypes from "prop-types";
 import * as React from "react";
-import { Route, Router, Switch } from "react-router";
+import { RouteComponentProps } from "react-router";
 
+import { Screen } from "./appUiBase";
 import MainScreen from "./screen/main";
 import MeScreen from "./screen/me";
 import ProjectScreen from "./screen/project";
 import ResumeScreen from "./screen/resume";
+import Navigator from "./screenComponent/navigator";
+import Title from "./screenComponent/title";
 
-export enum Screen {
-    MAIN,
-    ME,
-    PROJECT,
-    RESUME,
-}
+export default function AppUi(props: RouteComponentProps<any>) {
 
-export default class AppUi extends
-                     React.Component<{}, never> {
-
-    static contextTypes = {
-        router: PropTypes.object,
-    };
-
-    static childContextTypes = {
-        switchScreen: PropTypes.func.isRequired,
-    };
-
-    private history: H.History;
-
-    getChildContext() {
-        return {
-            switchScreen: this._switchScreen,
-        };
-    }
-
-    componentWillMount() {
-        if (window.history && window.history.pushState) {
-            this.history = createBrowserHistory({
-                basename: "/",
-                forceRefresh: false,
-            });
-        } else {
-            this.history = createHashHistory({
-                basename: "/",
-                hashType: "slash",
-            });
-        }
-    }
-
-    render() {
+    function renderComponent(
+        component: React.ReactNode,
+        titles: Array<string>,
+        screen: Screen,
+    ) {
         return (
-            <Router history={this.history}>
-                <Switch>
-                    <Route exact path="/" component={MainScreen} />
-                    <Route exact path="/me" component={MeScreen} />
-                    <Route exact path="/project" component={ProjectScreen} />
-                    <Route exact path="/resume" component={ResumeScreen} />
-                </Switch>
-            </Router>
+            <div>
+                <div className="header-container">
+                    <Title titles={titles} />
+                    <Navigator screen={screen} />
+                </div>
+                {component}
+            </div>
         );
     }
 
-    @autobind
-    private _switchScreen(screen: Screen) {
-        let url: string;
-        switch (screen) {
-            case Screen.MAIN:
-                url = "/";
-                break;
-            case Screen.ME:
-                url = "/me";
-                break;
-            case Screen.PROJECT:
-                url = "/project";
-                break;
-            case Screen.RESUME:
-                url = "/resume";
-                break;
-            default:
-                url = "/";
-        }
-        this.history.push(url);
+    // render
+    const screen: string = props.match.params.screen || "";
+    switch (screen) {
+        case Screen.MAIN:
+            return renderComponent(<MainScreen />, ["Luyao Hou"], Screen.MAIN);
+        case Screen.ME:
+            return renderComponent(<MeScreen />, ["Me"], Screen.ME);
+        case Screen.PROJECT:
+            return renderComponent(
+                <ProjectScreen />,
+                ["Projects"],
+                Screen.PROJECT,
+            );
+        case Screen.RESUME:
+            return renderComponent(
+                <ResumeScreen />,
+                ["Resume"],
+                Screen.RESUME,
+            );
+        default:
+            return null;
     }
 }

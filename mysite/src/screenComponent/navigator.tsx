@@ -2,7 +2,7 @@ import autobind from "autobind-decorator";
 import PropTypes from "prop-types";
 import * as React from "react";
 
-import { Screen } from "../appUi";
+import { Screen } from "../appUiBase";
 import { ASSET_PATH } from "./data";
 
 import "./navigator.scss";

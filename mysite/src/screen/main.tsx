@@ -1,18 +1,12 @@
 import autobind from "autobind-decorator";
 import * as React from "react";
-import { RouteComponentProps } from "react-router";
 
-import { Screen } from "../appUi";
 import TextDetail from "../detailComponent/textDetail";
 import VerticalLayoutDetail from "../detailComponent/verticalLayoutDetail";
 import { BulletinProps } from "../screenComponent/bulletin";
 import BulletinBoard from "../screenComponent/bulletinBoard";
-import Navigator from "../screenComponent/navigator";
-import Title from "../screenComponent/title";
 import { ASSET_PATH } from "./data";
 import { renderResume } from "./resume";
-
-import "./style.scss";
 
 interface MyWindow extends Window {
     processInsta(data: any): void;
@@ -29,12 +23,10 @@ interface MainScreenState {
     instaParams: Array<InstaParams>;
 }
 
-type Props = RouteComponentProps<any>;
-
 const instaNum = 3;
 
 export default class MainScreen extends
-                     React.Component<Props, MainScreenState> {
+                     React.Component<{}, MainScreenState> {
 
     state: MainScreenState = {
         instaParams: [],
@@ -60,16 +52,10 @@ export default class MainScreen extends
 
     render() {
         return (
-            <div>
-                <div className="header-container">
-                    <Title titles={["Luyao Hou"]} />
-                    <Navigator screen={Screen.MAIN} />
-                </div>
-                <div className="content-container">
-                    {this._renderPinBoard()}
-                    {this._renderInstaBoard()}
-                    {this._renderProjectBoard()}
-                </div>
+            <div className="content-container">
+                {this._renderPinBoard()}
+                {this._renderInstaBoard()}
+                {this._renderProjectBoard()}
             </div>
         );
     }

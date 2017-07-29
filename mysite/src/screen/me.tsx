@@ -1,37 +1,19 @@
 import * as React from "react";
-import { RouteComponentProps } from "react-router";
 
-import { Screen } from "../appUi";
 import TextDetail from "../detailComponent/textDetail";
 import { BulletinProps } from "../screenComponent/bulletin";
 import BulletinBoard from "../screenComponent/bulletinBoard";
-import Navigator from "../screenComponent/navigator";
-import Title from "../screenComponent/title";
 import { ASSET_PATH } from "./data";
 
-import "./style.scss";
-
-type Props = RouteComponentProps<any>;
-
 export default class MeScreen extends
-                     React.Component<Props, never> {
+                     React.Component<{}, never> {
 
     render() {
         return (
-            <div>
-                <div className="header-container">
-                    <Title titles={["Me"]} />
-                    <Navigator screen={Screen.ME} />
-                </div>
-                <div className="content-container">
-                    {this._renderEducation()}
-                </div>
-                <div className="content-container">
-                    {this._renderOffwork()}
-                </div>
-                <div className="content-container">
-                    {this._renderExperience()}
-                </div>
+            <div className="content-container">
+                {this._renderEducation()}
+                {this._renderOffwork()}
+                {this._renderExperience()}
             </div>
         );
     }
