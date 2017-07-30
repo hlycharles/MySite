@@ -8,6 +8,8 @@
 
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+
+    touch-action: manipulation;
 }
 
 @media (max-width: 900px) {
