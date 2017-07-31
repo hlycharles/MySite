@@ -28,8 +28,8 @@ export default function AppUi(props: RouteComponentProps<any>) {
     }
 
     // render
-    const screen: string = props.match.params.screen || "";
-    switch (screen) {
+    const currentScreen: string = props.match.params.screen || "";
+    switch (currentScreen) {
         case Screen.MAIN:
             return renderComponent(<MainScreen />, ["Luyao Hou"], Screen.MAIN);
         case Screen.ME:
