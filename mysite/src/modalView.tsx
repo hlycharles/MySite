@@ -17,7 +17,7 @@ export default class ModalView extends
 
     render() {
         return (
-            <div className="modal-boundary">
+            <div className="modal-boundary fade-in">
                 <div className="modal-container">
                     <div className="modal-button" onClick={this._handleClick}>
                         <img src="../asset/img/close_button.png" />

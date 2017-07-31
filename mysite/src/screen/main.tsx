@@ -3,6 +3,7 @@ import * as React from "react";
 
 import TextDetail from "../detailComponent/textDetail";
 import VerticalLayoutDetail from "../detailComponent/verticalLayoutDetail";
+import { readFile } from "../lib/file";
 import { BulletinProps } from "../screenComponent/bulletin";
 import BulletinBoard from "../screenComponent/bulletinBoard";
 import { ASSET_PATH } from "./data";
@@ -15,7 +16,7 @@ interface MyWindow extends Window {
 declare var window: MyWindow;
 
 interface InstaParams {
-    url: string;
+    url?: string;
     locationName?: string;
 }
 
@@ -29,25 +30,13 @@ export default class MainScreen extends
                      React.Component<{}, MainScreenState> {
 
     state: MainScreenState = {
-        instaParams: [],
+        instaParams: Array<InstaParams>(instaNum).fill({}),
     };
 
-    componentDidMount() {
-        window.processInsta = (data: any) => {
-            const instaParams = this.state.instaParams;
-            for (const d of data.data) {
-                const imgUrl: string = d.images.standard_resolution.url;
-                instaParams.push({
-                    locationName: d.location.name,
-                    url: imgUrl,
-                });
-            }
-            this.setState({ instaParams });
-        };
-        const srcElement = document.createElement("script");
-        const url = this._generateUrl();
-        srcElement.setAttribute("src", url);
-        document.body.appendChild(srcElement);
+    componentWillMount() {
+        for (let i = 0; i < instaNum; i++) {
+            this._readFileForInsta(i);
+        }
     }
 
     render() {
@@ -60,14 +49,18 @@ export default class MainScreen extends
         );
     }
 
-    private _generateUrl() {
-        const token = "247738439.638e650.fd3e68f07430460e95a04a22d583eead";
-        const urlPrefix = "https://api.instagram.com/";
-        const url = urlPrefix.concat("v1/users/self/media/recent?");
-        const urlToken = url.concat("access_token=" + token);
-        const urlCount = urlToken.concat("&count=" + instaNum);
-        const urlCallback = urlCount.concat("&callback=processInsta");
-        return urlCallback;
+    private _readFileForInsta(index: number) {
+        return readFile(
+            `${ASSET_PATH}doc/insta/${index}.txt`,
+            (locationName: string) => {
+                const instaParams = this.state.instaParams;
+                instaParams[index] = {
+                    locationName,
+                    url: `${ASSET_PATH}img/insta/${index}.jpg`,
+                };
+                this.setState({ instaParams });
+            },
+        );
     }
 
     private _renderPinBoard(): React.ReactNode {

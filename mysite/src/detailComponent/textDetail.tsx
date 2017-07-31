@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import { readFile } from "../lib/file";
 import "./textDetail.scss";
 
 interface TextDetailProps {
@@ -20,16 +21,10 @@ export default class TextDetail extends
 
     componentWillMount() {
         if (this.props.type === "file") {
-            const file = new XMLHttpRequest();
-            file.open("GET", this.props.content, true);
-            file.onreadystatechange = () => {
-                if (file.readyState === 4) {
-                    if (file.status === 200 || file.status === 0) {
-                        this.setState({ content: file.responseText });
-                    }
-                }
-            };
-            file.send(null);
+            readFile(
+                this.props.content,
+                (content: string) => this.setState({ content }),
+            );
         }
     }
 

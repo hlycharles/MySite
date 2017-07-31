@@ -23,9 +23,12 @@ export default class Bulletin extends
     };
 
     render() {
-        let className = "bulletin ".concat(this.props.class);
+        let className = `bulletin ${this.props.class}`;
         if (this.props.detailedView || this.props.clickAction) {
-            className = className.concat(" " + "clickable");
+            className = `${className}  clickable`;
+        }
+        if (this.props.img && this.props.cover) {
+            className = `${className} fade-in`;
         }
         return (
             <div className={className} onClick={this._handleClick}>
